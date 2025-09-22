@@ -1,5 +1,5 @@
 // SETTINGS
-const totalClicks = 500 // total actions to perform
+const totalClicks = 1000 // total actions to perform
 const minDelay = 500 // minimum delay in ms
 const maxDelay = 1000 // maximum delay in ms
 
@@ -9,11 +9,30 @@ let retryCount = 0
 const bannedWords = [
     'ladyboy',
     'กระเทย',
-    'single mon',
+    'singlemom',
+    'singlemother',
     'เกย์',
     'ชายแท้',
     'สาวสอง',
     'gay',
+    'transgender',
+    'lgbt',
+    'lgtv',
+    'สาว2',
+    'แม่เลี้ยงเดี่ยว',
+    'notgirl',
+    'notagirl',
+    'ไม่ใช่ผู้หญิง',
+    '🏳️‍🌈',
+    'lb',
+    'ลูก',
+    'ไม่ใช่ผญ',
+    'สาวส',
+    '🏳️‍⚧️',
+    'ข้ามเพศ',
+    'แปลงเพศ',
+    'notwoman',
+    'notawoman',
 ]
 
 function randomDelay(min, max) {
@@ -38,6 +57,13 @@ function sleep(ms) {
 }
 
 async function startAction() {
+    const backBtn = getElementByText('span', 'Back')?.parentElement
+
+    if (backBtn) {
+        backBtn.click()
+        await sleep(800)
+    }
+
     const profileBtn = getElementByText('button', 'Open Profile')
 
     if (!profileBtn) {
@@ -47,10 +73,9 @@ async function startAction() {
 
     profileBtn.click()
 
-    await sleep(500)
+    await sleep(800)
 
     const nopeBtn = getElementByText('button', 'Nope')
-    const likeBtn = getElementByText('button', 'Like')
     const delay = randomDelay(minDelay, maxDelay)
 
     let aboutMe = getElementByText('div', 'About me')?.nextElementSibling
@@ -65,8 +90,6 @@ async function startAction() {
                 .replace(/\s+/g, '')
                 .includes(word.toLowerCase())
         )
-
-        console.log('foundBannedWords:', foundBannedWords)
 
         if (foundBannedWords.length) {
             return clickNopeButton(
@@ -83,14 +106,23 @@ async function startAction() {
         ?.nextElementSibling?.textContent?.toLowerCase()
         ?.includes('i have children')
 
-    console.log('haveChildren:', haveChildren)
-
     if (haveChildren) {
         return clickNopeButton(
             nopeBtn,
             `Nope due to having children (${clicksDone}/${totalClicks})`,
             delay
         )
+    }
+
+    const likeBtn = getElementByText('button', 'Like')
+
+    console.log('clicking Like button')
+
+    if (!likeBtn || likeBtn.getAttribute('aria-disabled') === 'true') {
+        console.error(`Like button not found or disabled!`)
+        retryCount++
+        setTimeout(clickRandomButton, delay)
+        return
     }
 
     likeBtn.click()
