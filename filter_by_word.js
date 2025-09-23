@@ -1,5 +1,5 @@
 // SETTINGS
-const totalClicks = 1000 // total actions to perform
+const totalClicks = 2000 // total actions to perform
 const minDelay = 500 // minimum delay in ms
 const maxDelay = 1000 // maximum delay in ms
 
@@ -24,7 +24,6 @@ const bannedWords = [
     'notagirl',
     'ไม่ใช่ผู้หญิง',
     '🏳️‍🌈',
-    'lb',
     'ลูก',
     'ไม่ใช่ผญ',
     'สาวส',
@@ -33,6 +32,10 @@ const bannedWords = [
     'แปลงเพศ',
     'notwoman',
     'notawoman',
+    'ประเภท2',
+    'ประเภทสอง',
+    'ลูกติด',
+    'trans',
 ]
 
 function randomDelay(min, max) {
@@ -57,6 +60,13 @@ function sleep(ms) {
 }
 
 async function startAction() {
+    if (retryCount > 3) {
+        console.error(`Too many retries. Stopping.`)
+        clicksDone = 0
+        retryCount = 0
+        return
+    }
+
     const backBtn = getElementByText('span', 'Back')?.parentElement
 
     if (backBtn) {
@@ -66,9 +76,13 @@ async function startAction() {
 
     const profileBtn = getElementByText('button', 'Open Profile')
 
+    const delay = randomDelay(minDelay, maxDelay)
+
     if (!profileBtn) {
-        clicksDone = 0
-        throw new Error('Profile button not found')
+        console.error('Profile button not found')
+        retryCount++
+        setTimeout(startAction, delay)
+        return
     }
 
     profileBtn.click()
@@ -76,7 +90,6 @@ async function startAction() {
     await sleep(800)
 
     const nopeBtn = getElementByText('button', 'Nope')
-    const delay = randomDelay(minDelay, maxDelay)
 
     let aboutMe = getElementByText('div', 'About me')?.nextElementSibling
         ?.textContent
@@ -116,12 +129,10 @@ async function startAction() {
 
     const likeBtn = getElementByText('button', 'Like')
 
-    console.log('clicking Like button')
-
     if (!likeBtn || likeBtn.getAttribute('aria-disabled') === 'true') {
         console.error(`Like button not found or disabled!`)
         retryCount++
-        setTimeout(clickRandomButton, delay)
+        setTimeout(startAction, delay)
         return
     }
 
