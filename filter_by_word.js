@@ -36,6 +36,8 @@ const bannedWords = [
     'ประเภทสอง',
     'ลูกติด',
     'trans',
+    'ตุ๊ด',
+    'ไม่ใช่ญแท้',
 ]
 
 function randomDelay(min, max) {
