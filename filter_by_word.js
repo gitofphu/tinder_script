@@ -1,5 +1,5 @@
 // SETTINGS
-const totalClicks = 2000 // total actions to perform
+const totalClicks = 20000 // total actions to perform
 const minDelay = 500 // minimum delay in ms
 const maxDelay = 1000 // maximum delay in ms
 
@@ -22,7 +22,8 @@ const bannedWords = [
     'แม่เลี้ยงเดี่ยว',
     'notgirl',
     'notagirl',
-    'ไม่ใช่ผู้หญิง',
+    'ใช่ผู้หญิง',
+    'ใช่ผญ',
     '🏳️‍🌈',
     'ลูก',
     'ไม่ใช่ผญ',
@@ -38,6 +39,10 @@ const bannedWords = [
     'trans',
     'ตุ๊ด',
     'ไม่ใช่ญแท้',
+    '🐍',
+    'นมงู',
+    'ทราน',
+    'มีงู',
 ]
 
 function randomDelay(min, max) {
@@ -76,7 +81,7 @@ async function startAction() {
         await sleep(800)
     }
 
-    const profileBtn = getElementByText('button', 'Open Profile')
+    const profileBtn = getElementByText('div', 'Open Profile')
 
     const delay = randomDelay(minDelay, maxDelay)
 
