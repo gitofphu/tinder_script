@@ -43,6 +43,7 @@ const bannedWords = [
     'นมงู',
     'ทราน',
     'มีงู',
+    'ไม่แปลง',
 ]
 
 function randomDelay(min, max) {
@@ -64,6 +65,16 @@ function clickNopeButton(nopeBtn, reason, delay) {
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms))
+}
+
+function findBannedWords(text) {
+    const cleanText = text
+        .toLowerCase()
+        .replace(/[^a-zA-Z0-9\u0E00-\u0E7F ]/g, '')
+        .replace(/\s+/g, '')
+
+    console.log('cleanText:', cleanText)
+    return bannedWords.filter(word => cleanText.includes(word.toLowerCase()))
 }
 
 async function startAction() {
@@ -98,23 +109,38 @@ async function startAction() {
 
     const nopeBtn = getElementByText('button', 'Nope')
 
+    const nameContainer = document.getElementsByClassName('Pend(8px)')?.[0]
+
+    if (nameContainer) {
+        let name = nameContainer.textContent
+
+        console.log('name:', name)
+
+        const foundBannedWords = findBannedWords(name)
+
+        if (foundBannedWords.length) {
+            return clickNopeButton(
+                nopeBtn,
+                `Nope due to banned words in name: ${foundBannedWords.join(
+                    ', '
+                )} (${clicksDone}/${totalClicks})`,
+                delay
+            )
+        }
+    }
+
     let aboutMe = getElementByText('div', 'About me')?.nextElementSibling
         ?.textContent
 
     if (aboutMe) {
         console.log('aboutMe:', aboutMe)
 
-        const foundBannedWords = bannedWords.filter(word =>
-            aboutMe
-                .toLowerCase()
-                .replace(/\s+/g, '')
-                .includes(word.toLowerCase())
-        )
+        const foundBannedWords = findBannedWords(aboutMe)
 
         if (foundBannedWords.length) {
             return clickNopeButton(
                 nopeBtn,
-                `Nope due to banned words: ${foundBannedWords.join(
+                `Nope due to banned words in about me: ${foundBannedWords.join(
                     ', '
                 )} (${clicksDone}/${totalClicks})`,
                 delay
