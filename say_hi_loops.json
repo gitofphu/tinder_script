@@ -1,0 +1,2326 @@
+{
+    "title": "say_hi_loops",
+    "timeout": 10000,
+    "steps": [
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Fern[role=\"image\"]"],
+                [
+                    "ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ],
+                ["xpath///*[@id=\"q1560429580\"]/ul[1]/li[3]/a/div[1]/div"],
+                [
+                    "pierce/ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ]
+            ],
+            "offsetY": 49.359375,
+            "offsetX": 38.380462646484375
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 13,
+            "offsetX": 181
+        },
+        {
+            "type": "change",
+            "value": "สวัสดีครับ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 10.5,
+            "offsetX": 22.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 16,
+            "offsetX": 136
+        },
+        {
+            "type": "change",
+            "value": "ภู",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "ภูนะ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 1.5,
+            "offsetX": 40.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Matches"],
+                ["#q306418480"],
+                ["xpath///*[@id=\"q306418480\"]"],
+                ["pierce/#q306418480"],
+                ["text/Matches"]
+            ],
+            "offsetY": 7.359375,
+            "offsetX": 33
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Fern[role=\"image\"]"],
+                [
+                    "ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ],
+                ["xpath///*[@id=\"q1560429580\"]/ul[1]/li[3]/a/div[1]/div"],
+                [
+                    "pierce/ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ]
+            ],
+            "offsetY": 49.359375,
+            "offsetX": 38.380462646484375
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 13,
+            "offsetX": 181
+        },
+        {
+            "type": "change",
+            "value": "สวัสดีครับ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 10.5,
+            "offsetX": 22.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 16,
+            "offsetX": 136
+        },
+        {
+            "type": "change",
+            "value": "ภู",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "ภูนะ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 1.5,
+            "offsetX": 40.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Matches"],
+                ["#q306418480"],
+                ["xpath///*[@id=\"q306418480\"]"],
+                ["pierce/#q306418480"],
+                ["text/Matches"]
+            ],
+            "offsetY": 7.359375,
+            "offsetX": 33
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Fern[role=\"image\"]"],
+                [
+                    "ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ],
+                ["xpath///*[@id=\"q1560429580\"]/ul[1]/li[3]/a/div[1]/div"],
+                [
+                    "pierce/ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ]
+            ],
+            "offsetY": 49.359375,
+            "offsetX": 38.380462646484375
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 13,
+            "offsetX": 181
+        },
+        {
+            "type": "change",
+            "value": "สวัสดีครับ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 10.5,
+            "offsetX": 22.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 16,
+            "offsetX": 136
+        },
+        {
+            "type": "change",
+            "value": "ภู",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "ภูนะ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 1.5,
+            "offsetX": 40.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Matches"],
+                ["#q306418480"],
+                ["xpath///*[@id=\"q306418480\"]"],
+                ["pierce/#q306418480"],
+                ["text/Matches"]
+            ],
+            "offsetY": 7.359375,
+            "offsetX": 33
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Fern[role=\"image\"]"],
+                [
+                    "ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ],
+                ["xpath///*[@id=\"q1560429580\"]/ul[1]/li[3]/a/div[1]/div"],
+                [
+                    "pierce/ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ]
+            ],
+            "offsetY": 49.359375,
+            "offsetX": 38.380462646484375
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 13,
+            "offsetX": 181
+        },
+        {
+            "type": "change",
+            "value": "สวัสดีครับ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 10.5,
+            "offsetX": 22.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 16,
+            "offsetX": 136
+        },
+        {
+            "type": "change",
+            "value": "ภู",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "ภูนะ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 1.5,
+            "offsetX": 40.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Matches"],
+                ["#q306418480"],
+                ["xpath///*[@id=\"q306418480\"]"],
+                ["pierce/#q306418480"],
+                ["text/Matches"]
+            ],
+            "offsetY": 7.359375,
+            "offsetX": 33
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Fern[role=\"image\"]"],
+                [
+                    "ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ],
+                ["xpath///*[@id=\"q1560429580\"]/ul[1]/li[3]/a/div[1]/div"],
+                [
+                    "pierce/ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ]
+            ],
+            "offsetY": 49.359375,
+            "offsetX": 38.380462646484375
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 13,
+            "offsetX": 181
+        },
+        {
+            "type": "change",
+            "value": "สวัสดีครับ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 10.5,
+            "offsetX": 22.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 16,
+            "offsetX": 136
+        },
+        {
+            "type": "change",
+            "value": "ภู",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "ภูนะ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 1.5,
+            "offsetX": 40.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Matches"],
+                ["#q306418480"],
+                ["xpath///*[@id=\"q306418480\"]"],
+                ["pierce/#q306418480"],
+                ["text/Matches"]
+            ],
+            "offsetY": 7.359375,
+            "offsetX": 33
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Fern[role=\"image\"]"],
+                [
+                    "ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ],
+                ["xpath///*[@id=\"q1560429580\"]/ul[1]/li[3]/a/div[1]/div"],
+                [
+                    "pierce/ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ]
+            ],
+            "offsetY": 49.359375,
+            "offsetX": 38.380462646484375
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 13,
+            "offsetX": 181
+        },
+        {
+            "type": "change",
+            "value": "สวัสดีครับ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 10.5,
+            "offsetX": 22.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 16,
+            "offsetX": 136
+        },
+        {
+            "type": "change",
+            "value": "ภู",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "ภูนะ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 1.5,
+            "offsetX": 40.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Matches"],
+                ["#q306418480"],
+                ["xpath///*[@id=\"q306418480\"]"],
+                ["pierce/#q306418480"],
+                ["text/Matches"]
+            ],
+            "offsetY": 7.359375,
+            "offsetX": 33
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Fern[role=\"image\"]"],
+                [
+                    "ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ],
+                ["xpath///*[@id=\"q1560429580\"]/ul[1]/li[3]/a/div[1]/div"],
+                [
+                    "pierce/ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ]
+            ],
+            "offsetY": 49.359375,
+            "offsetX": 38.380462646484375
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 13,
+            "offsetX": 181
+        },
+        {
+            "type": "change",
+            "value": "สวัสดีครับ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 10.5,
+            "offsetX": 22.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 16,
+            "offsetX": 136
+        },
+        {
+            "type": "change",
+            "value": "ภู",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "ภูนะ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 1.5,
+            "offsetX": 40.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Matches"],
+                ["#q306418480"],
+                ["xpath///*[@id=\"q306418480\"]"],
+                ["pierce/#q306418480"],
+                ["text/Matches"]
+            ],
+            "offsetY": 7.359375,
+            "offsetX": 33
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Fern[role=\"image\"]"],
+                [
+                    "ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ],
+                ["xpath///*[@id=\"q1560429580\"]/ul[1]/li[3]/a/div[1]/div"],
+                [
+                    "pierce/ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ]
+            ],
+            "offsetY": 49.359375,
+            "offsetX": 38.380462646484375
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 13,
+            "offsetX": 181
+        },
+        {
+            "type": "change",
+            "value": "สวัสดีครับ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 10.5,
+            "offsetX": 22.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 16,
+            "offsetX": 136
+        },
+        {
+            "type": "change",
+            "value": "ภู",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "ภูนะ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 1.5,
+            "offsetX": 40.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Matches"],
+                ["#q306418480"],
+                ["xpath///*[@id=\"q306418480\"]"],
+                ["pierce/#q306418480"],
+                ["text/Matches"]
+            ],
+            "offsetY": 7.359375,
+            "offsetX": 33
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Fern[role=\"image\"]"],
+                [
+                    "ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ],
+                ["xpath///*[@id=\"q1560429580\"]/ul[1]/li[3]/a/div[1]/div"],
+                [
+                    "pierce/ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ]
+            ],
+            "offsetY": 49.359375,
+            "offsetX": 38.380462646484375
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 13,
+            "offsetX": 181
+        },
+        {
+            "type": "change",
+            "value": "สวัสดีครับ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 10.5,
+            "offsetX": 22.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 16,
+            "offsetX": 136
+        },
+        {
+            "type": "change",
+            "value": "ภู",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "ภูนะ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 1.5,
+            "offsetX": 40.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Matches"],
+                ["#q306418480"],
+                ["xpath///*[@id=\"q306418480\"]"],
+                ["pierce/#q306418480"],
+                ["text/Matches"]
+            ],
+            "offsetY": 7.359375,
+            "offsetX": 33
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Fern[role=\"image\"]"],
+                [
+                    "ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ],
+                ["xpath///*[@id=\"q1560429580\"]/ul[1]/li[3]/a/div[1]/div"],
+                [
+                    "pierce/ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ]
+            ],
+            "offsetY": 49.359375,
+            "offsetX": 38.380462646484375
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 13,
+            "offsetX": 181
+        },
+        {
+            "type": "change",
+            "value": "สวัสดีครับ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 10.5,
+            "offsetX": 22.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 16,
+            "offsetX": 136
+        },
+        {
+            "type": "change",
+            "value": "ภู",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "ภูนะ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 1.5,
+            "offsetX": 40.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Matches"],
+                ["#q306418480"],
+                ["xpath///*[@id=\"q306418480\"]"],
+                ["pierce/#q306418480"],
+                ["text/Matches"]
+            ],
+            "offsetY": 7.359375,
+            "offsetX": 33
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Fern[role=\"image\"]"],
+                [
+                    "ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ],
+                ["xpath///*[@id=\"q1560429580\"]/ul[1]/li[3]/a/div[1]/div"],
+                [
+                    "pierce/ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ]
+            ],
+            "offsetY": 49.359375,
+            "offsetX": 38.380462646484375
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 13,
+            "offsetX": 181
+        },
+        {
+            "type": "change",
+            "value": "สวัสดีครับ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 10.5,
+            "offsetX": 22.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 16,
+            "offsetX": 136
+        },
+        {
+            "type": "change",
+            "value": "ภู",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "ภูนะ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 1.5,
+            "offsetX": 40.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Matches"],
+                ["#q306418480"],
+                ["xpath///*[@id=\"q306418480\"]"],
+                ["pierce/#q306418480"],
+                ["text/Matches"]
+            ],
+            "offsetY": 7.359375,
+            "offsetX": 33
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Fern[role=\"image\"]"],
+                [
+                    "ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ],
+                ["xpath///*[@id=\"q1560429580\"]/ul[1]/li[3]/a/div[1]/div"],
+                [
+                    "pierce/ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ]
+            ],
+            "offsetY": 49.359375,
+            "offsetX": 38.380462646484375
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 13,
+            "offsetX": 181
+        },
+        {
+            "type": "change",
+            "value": "สวัสดีครับ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 10.5,
+            "offsetX": 22.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 16,
+            "offsetX": 136
+        },
+        {
+            "type": "change",
+            "value": "ภู",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "ภูนะ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 1.5,
+            "offsetX": 40.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Matches"],
+                ["#q306418480"],
+                ["xpath///*[@id=\"q306418480\"]"],
+                ["pierce/#q306418480"],
+                ["text/Matches"]
+            ],
+            "offsetY": 7.359375,
+            "offsetX": 33
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Fern[role=\"image\"]"],
+                [
+                    "ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ],
+                ["xpath///*[@id=\"q1560429580\"]/ul[1]/li[3]/a/div[1]/div"],
+                [
+                    "pierce/ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ]
+            ],
+            "offsetY": 49.359375,
+            "offsetX": 38.380462646484375
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 13,
+            "offsetX": 181
+        },
+        {
+            "type": "change",
+            "value": "สวัสดีครับ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 10.5,
+            "offsetX": 22.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 16,
+            "offsetX": 136
+        },
+        {
+            "type": "change",
+            "value": "ภู",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "ภูนะ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 1.5,
+            "offsetX": 40.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Matches"],
+                ["#q306418480"],
+                ["xpath///*[@id=\"q306418480\"]"],
+                ["pierce/#q306418480"],
+                ["text/Matches"]
+            ],
+            "offsetY": 7.359375,
+            "offsetX": 33
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Fern[role=\"image\"]"],
+                [
+                    "ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ],
+                ["xpath///*[@id=\"q1560429580\"]/ul[1]/li[3]/a/div[1]/div"],
+                [
+                    "pierce/ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ]
+            ],
+            "offsetY": 49.359375,
+            "offsetX": 38.380462646484375
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 13,
+            "offsetX": 181
+        },
+        {
+            "type": "change",
+            "value": "สวัสดีครับ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 10.5,
+            "offsetX": 22.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 16,
+            "offsetX": 136
+        },
+        {
+            "type": "change",
+            "value": "ภู",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "ภูนะ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 1.5,
+            "offsetX": 40.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Matches"],
+                ["#q306418480"],
+                ["xpath///*[@id=\"q306418480\"]"],
+                ["pierce/#q306418480"],
+                ["text/Matches"]
+            ],
+            "offsetY": 7.359375,
+            "offsetX": 33
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Fern[role=\"image\"]"],
+                [
+                    "ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ],
+                ["xpath///*[@id=\"q1560429580\"]/ul[1]/li[3]/a/div[1]/div"],
+                [
+                    "pierce/ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ]
+            ],
+            "offsetY": 49.359375,
+            "offsetX": 38.380462646484375
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 13,
+            "offsetX": 181
+        },
+        {
+            "type": "change",
+            "value": "สวัสดีครับ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 10.5,
+            "offsetX": 22.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 16,
+            "offsetX": 136
+        },
+        {
+            "type": "change",
+            "value": "ภู",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "ภูนะ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 1.5,
+            "offsetX": 40.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Matches"],
+                ["#q306418480"],
+                ["xpath///*[@id=\"q306418480\"]"],
+                ["pierce/#q306418480"],
+                ["text/Matches"]
+            ],
+            "offsetY": 7.359375,
+            "offsetX": 33
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Fern[role=\"image\"]"],
+                [
+                    "ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ],
+                ["xpath///*[@id=\"q1560429580\"]/ul[1]/li[3]/a/div[1]/div"],
+                [
+                    "pierce/ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ]
+            ],
+            "offsetY": 49.359375,
+            "offsetX": 38.380462646484375
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 13,
+            "offsetX": 181
+        },
+        {
+            "type": "change",
+            "value": "สวัสดีครับ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 10.5,
+            "offsetX": 22.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 16,
+            "offsetX": 136
+        },
+        {
+            "type": "change",
+            "value": "ภู",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "ภูนะ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 1.5,
+            "offsetX": 40.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Matches"],
+                ["#q306418480"],
+                ["xpath///*[@id=\"q306418480\"]"],
+                ["pierce/#q306418480"],
+                ["text/Matches"]
+            ],
+            "offsetY": 7.359375,
+            "offsetX": 33
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Fern[role=\"image\"]"],
+                [
+                    "ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ],
+                ["xpath///*[@id=\"q1560429580\"]/ul[1]/li[3]/a/div[1]/div"],
+                [
+                    "pierce/ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ]
+            ],
+            "offsetY": 49.359375,
+            "offsetX": 38.380462646484375
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 13,
+            "offsetX": 181
+        },
+        {
+            "type": "change",
+            "value": "สวัสดีครับ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 10.5,
+            "offsetX": 22.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 16,
+            "offsetX": 136
+        },
+        {
+            "type": "change",
+            "value": "ภู",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "ภูนะ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 1.5,
+            "offsetX": 40.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Matches"],
+                ["#q306418480"],
+                ["xpath///*[@id=\"q306418480\"]"],
+                ["pierce/#q306418480"],
+                ["text/Matches"]
+            ],
+            "offsetY": 7.359375,
+            "offsetX": 33
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Fern[role=\"image\"]"],
+                [
+                    "ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ],
+                ["xpath///*[@id=\"q1560429580\"]/ul[1]/li[3]/a/div[1]/div"],
+                [
+                    "pierce/ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ]
+            ],
+            "offsetY": 49.359375,
+            "offsetX": 38.380462646484375
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 13,
+            "offsetX": 181
+        },
+        {
+            "type": "change",
+            "value": "สวัสดีครับ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 10.5,
+            "offsetX": 22.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 16,
+            "offsetX": 136
+        },
+        {
+            "type": "change",
+            "value": "ภู",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "ภูนะ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 1.5,
+            "offsetX": 40.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Matches"],
+                ["#q306418480"],
+                ["xpath///*[@id=\"q306418480\"]"],
+                ["pierce/#q306418480"],
+                ["text/Matches"]
+            ],
+            "offsetY": 7.359375,
+            "offsetX": 33
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Fern[role=\"image\"]"],
+                [
+                    "ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ],
+                ["xpath///*[@id=\"q1560429580\"]/ul[1]/li[3]/a/div[1]/div"],
+                [
+                    "pierce/ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ]
+            ],
+            "offsetY": 49.359375,
+            "offsetX": 38.380462646484375
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 13,
+            "offsetX": 181
+        },
+        {
+            "type": "change",
+            "value": "สวัสดีครับ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 10.5,
+            "offsetX": 22.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 16,
+            "offsetX": 136
+        },
+        {
+            "type": "change",
+            "value": "ภู",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "ภูนะ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 1.5,
+            "offsetX": 40.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Matches"],
+                ["#q306418480"],
+                ["xpath///*[@id=\"q306418480\"]"],
+                ["pierce/#q306418480"],
+                ["text/Matches"]
+            ],
+            "offsetY": 7.359375,
+            "offsetX": 33
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Fern[role=\"image\"]"],
+                [
+                    "ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ],
+                ["xpath///*[@id=\"q1560429580\"]/ul[1]/li[3]/a/div[1]/div"],
+                [
+                    "pierce/ul:nth-of-type(1) > li:nth-of-type(3) div.Bgc\\(\\$c-ds-background-primary\\) > div"
+                ]
+            ],
+            "offsetY": 49.359375,
+            "offsetX": 38.380462646484375
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 13,
+            "offsetX": 181
+        },
+        {
+            "type": "change",
+            "value": "สวัสดีครับ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 10.5,
+            "offsetX": 22.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "offsetY": 16,
+            "offsetX": 136
+        },
+        {
+            "type": "change",
+            "value": "ภู",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "ภูนะ",
+            "selectors": [
+                ["aria/Type a message"],
+                ["#q922097893"],
+                ["xpath///*[@id=\"q922097893\"]"],
+                ["pierce/#q922097893"]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/SEND", "aria/[role=\"generic\"]"],
+                ["#main-content button.button > span"],
+                [
+                    "xpath///*[@id=\"main-content\"]/div[1]/div/div/div/div/div[1]/div/div/div[3]/form/button[2]/span"
+                ],
+                ["pierce/#main-content button.button > span"],
+                ["text/Send"]
+            ],
+            "offsetY": 1.5,
+            "offsetX": 40.890625
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                ["aria/Matches"],
+                ["#q306418480"],
+                ["xpath///*[@id=\"q306418480\"]"],
+                ["pierce/#q306418480"],
+                ["text/Matches"]
+            ],
+            "offsetY": 7.359375,
+            "offsetX": 33
+        }
+    ]
+}
