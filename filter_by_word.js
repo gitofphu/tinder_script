@@ -1,5 +1,5 @@
 // SETTINGS
-const totalClicks = 20000 // total actions to perform
+const totalClicks = 5000 // total actions to perform
 const minDelay = 500 // minimum delay in ms
 const maxDelay = 1000 // maximum delay in ms
 
@@ -9,6 +9,7 @@ let retryCount = 0
 const bannedWords = [
     'ladyboy',
     'กระเทย',
+    'กะเทย',
     'singlemom',
     'singlemother',
     'เกย์',
@@ -70,7 +71,7 @@ function sleep(ms) {
 function findBannedWords(text) {
     const cleanText = text
         .toLowerCase()
-        .replace(/[^a-zA-Z0-9\u0E00-\u0E7F ]/g, '')
+        .replace(/[^a-zA-Z0-9\u0E00-\u0E7F\p{Emoji}\p{Emoji_Component} ]/gu, '')
         .replace(/\s+/g, '')
 
     console.log('cleanText:', cleanText)
