@@ -17,16 +17,17 @@ const bannedWords = [
     'สาวสอง',
     'gay',
     'transgender',
+    'trangender',
     'lgbt',
     'lgtv',
     'สาว2',
-    'แม่เลี้ยงเดี่ยว',
+    'แม่',
+    'เลี้ยงเดี่ยว',
     'notgirl',
     'notagirl',
     'ใช่ผู้หญิง',
     'ใช่ผญ',
     '🏳️‍🌈',
-    'ลูก',
     'ไม่ใช่ผญ',
     'สาวส',
     '🏳️‍⚧️',
@@ -45,7 +46,14 @@ const bannedWords = [
     'ทราน',
     'มีงู',
     'ไม่แปลง',
+    'ว2',
+    'เปย์',
+    'notarealwoman',
+    'notrealwoman',
+    'ไม่หญิง',
 ]
+
+const bannedSex = ['gay', 'queer', 'questioning']
 
 function randomDelay(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min
@@ -68,14 +76,17 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms))
 }
 
-function findBannedWords(text) {
-    const cleanText = text
+function cleanText(text) {
+    return text
         .toLowerCase()
         .replace(/[^a-zA-Z0-9\u0E00-\u0E7F\p{Emoji}\p{Emoji_Component} ]/gu, '')
         .replace(/\s+/g, '')
+}
 
-    console.log('cleanText:', cleanText)
-    return bannedWords.filter(word => cleanText.includes(word.toLowerCase()))
+function findBannedWords(text, wordArr) {
+    const texts = cleanText(text)
+
+    return wordArr.filter(word => texts.includes(word.toLowerCase()))
 }
 
 async function startAction() {
@@ -117,7 +128,7 @@ async function startAction() {
 
         console.log('name:', name)
 
-        const foundBannedWords = findBannedWords(name)
+        const foundBannedWords = findBannedWords(name, bannedWords)
 
         if (foundBannedWords.length) {
             return clickNopeButton(
@@ -136,13 +147,30 @@ async function startAction() {
     if (aboutMe) {
         console.log('aboutMe:', aboutMe)
 
-        const foundBannedWords = findBannedWords(aboutMe)
+        const foundBannedWords = findBannedWords(aboutMe, bannedWords)
 
         if (foundBannedWords.length) {
             return clickNopeButton(
                 nopeBtn,
                 `Nope due to banned words in about me: ${foundBannedWords.join(
                     ', '
+                )} (${clicksDone}/${totalClicks})`,
+                delay
+            )
+        }
+    }
+
+    const essentials = getElementByText('div', 'Essentials')?.nextElementSibling
+        ?.textContent
+
+    if (essentials) {
+        const foundBannedWords = findBannedWords(essentials, bannedSex)
+
+        if (foundBannedWords.length) {
+            return clickNopeButton(
+                nopeBtn,
+                `Nope due to sexual oreientation essentials: ${foundBannedWords.join(
+                    ','
                 )} (${clicksDone}/${totalClicks})`,
                 delay
             )
