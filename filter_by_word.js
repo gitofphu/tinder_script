@@ -2,6 +2,7 @@
 const totalClicks = 5000 // total actions to perform
 const minDelay = 500 // minimum delay in ms
 const maxDelay = 1000 // maximum delay in ms
+const MAX_DISTANT_KM = 30 // maximum distant in kilometers
 
 let clicksDone = 0
 let retryCount = 0
@@ -28,6 +29,7 @@ const bannedWords = [
     'ใช่ผู้หญิง',
     'ใช่ผญ',
     '🏳️‍🌈',
+    '🌈',
     'ไม่ใช่ผญ',
     'สาวส',
     '🏳️‍⚧️',
@@ -51,6 +53,16 @@ const bannedWords = [
     'notarealwoman',
     'notrealwoman',
     'ไม่หญิง',
+    'femboy',
+    'feminineboy',
+    'notlady',
+]
+
+const acceptedWords = [
+    'notaladyboy',
+    'notladyboy',
+    'ไม่ใช่สาวสอง',
+    'ไม่ใช่กระเทย',
 ]
 
 const bannedSex = ['gay', 'queer', 'questioning']
@@ -65,13 +77,6 @@ function getElementByText(tag, text) {
     )
 }
 
-function clickNopeButton(nopeBtn, reason, delay) {
-    nopeBtn.click()
-    clicksDone++
-    console.info(reason)
-    setTimeout(startAction, delay)
-}
-
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms))
 }
@@ -83,7 +88,7 @@ function cleanText(text) {
         .replace(/\s+/g, '')
 }
 
-function findBannedWords(text, wordArr) {
+function findWords(text, wordArr) {
     const texts = cleanText(text)
 
     return wordArr.filter(word => texts.includes(word.toLowerCase()))
@@ -121,6 +126,13 @@ async function startAction() {
 
     const nopeBtn = getElementByText('button', 'Nope')
 
+    function clickNopeButton(reason) {
+        nopeBtn.click()
+        clicksDone++
+        console.error(reason)
+        setTimeout(startAction, delay)
+    }
+
     const nameContainer = document.getElementsByClassName('Pend(8px)')?.[0]
 
     if (nameContainer) {
@@ -128,15 +140,13 @@ async function startAction() {
 
         console.log('name:', name)
 
-        const foundBannedWords = findBannedWords(name, bannedWords)
+        const foundBannedWords = findWords(name, bannedWords)
 
         if (foundBannedWords.length) {
             return clickNopeButton(
-                nopeBtn,
                 `Nope due to banned words in name: ${foundBannedWords.join(
                     ', '
-                )} (${clicksDone}/${totalClicks})`,
-                delay
+                )} (${clicksDone}/${totalClicks})`
             )
         }
     }
@@ -147,35 +157,51 @@ async function startAction() {
     if (aboutMe) {
         console.log('aboutMe:', aboutMe)
 
-        const foundBannedWords = findBannedWords(aboutMe, bannedWords)
+        const foundBannedWords = findWords(aboutMe, bannedWords)
 
-        if (foundBannedWords.length) {
+        const foundAcceptedWords = findWords(aboutMe, acceptedWords)
+
+        if (foundBannedWords.length && foundAcceptedWords.length === 0) {
             return clickNopeButton(
-                nopeBtn,
                 `Nope due to banned words in about me: ${foundBannedWords.join(
                     ', '
-                )} (${clicksDone}/${totalClicks})`,
-                delay
+                )} (${clicksDone}/${totalClicks})`
             )
         }
     }
 
-    const essentials = getElementByText('div', 'Essentials')?.nextElementSibling
-        ?.textContent
+    const essentialContainer = getElementByText('div', 'Essentials')
+        ?.nextElementSibling.children
 
-    if (essentials) {
-        const foundBannedWords = findBannedWords(essentials, bannedSex)
+    const essentials = Array.from(essentialContainer).reduce((acc, curr) => {
+        return curr.outerText ? [...acc, curr.outerText] : acc
+    }, [])
+
+    let essentialsError = ''
+
+    for (const essential of essentials) {
+        const distantContainer = essential.includes('kilometers away')
+
+        if (distantContainer) {
+            const distant = essential.split(' ')
+
+            if (Number(distant[0]) > MAX_DISTANT_KM) {
+                essentialsError = `Nope due to distant: ${distant[0]} kilometers away, (${clicksDone}/${totalClicks})`
+                break
+            }
+        }
+
+        const foundBannedWords = findWords(essential, bannedSex)
 
         if (foundBannedWords.length) {
-            return clickNopeButton(
-                nopeBtn,
-                `Nope due to sexual oreientation essentials: ${foundBannedWords.join(
-                    ','
-                )} (${clicksDone}/${totalClicks})`,
-                delay
-            )
+            essentialsError = `Nope due to sexual oreientation essentials: ${foundBannedWords.join(
+                ','
+            )} (${clicksDone}/${totalClicks})`
+            break
         }
     }
+
+    if (essentialsError) return clickNopeButton(essentialsError)
 
     const haveChildren = getElementByText('h3', 'Family Plans')
         ?.nextElementSibling?.textContent?.toLowerCase()
@@ -183,9 +209,7 @@ async function startAction() {
 
     if (haveChildren) {
         return clickNopeButton(
-            nopeBtn,
-            `Nope due to having children (${clicksDone}/${totalClicks})`,
-            delay
+            `Nope due to having children (${clicksDone}/${totalClicks})`
         )
     }
 
@@ -199,6 +223,7 @@ async function startAction() {
     }
 
     likeBtn.click()
+    retryCount = 0
     clicksDone++
     console.log(`Liked (${clicksDone}/${totalClicks})`)
 
