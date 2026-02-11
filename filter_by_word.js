@@ -12,6 +12,7 @@ const bannedWords = [
     'กระเทย',
     'กะเทย',
     'singlemom',
+    'single mom',
     'singlemother',
     'เกย์',
     'ชายแท้',
@@ -22,7 +23,6 @@ const bannedWords = [
     'lgbt',
     'lgtv',
     'สาว2',
-    'แม่',
     'เลี้ยงเดี่ยว',
     'notgirl',
     'notagirl',
@@ -56,6 +56,8 @@ const bannedWords = [
     'femboy',
     'feminineboy',
     'notlady',
+    'notladies',
+    'มีลูก'
 ]
 
 const acceptedWords = [
@@ -133,6 +135,14 @@ async function startAction() {
         setTimeout(startAction, delay)
     }
 
+    const haveOnePicture = document.querySelector('[aria-label="1 of 1"]')
+
+    if (haveOnePicture) {
+        return clickNopeButton(
+            `Nope due to only have one picture: (${clicksDone}/${totalClicks})`
+        )
+    }
+
     const nameContainer = document.getElementsByClassName('Pend(8px)')?.[0]
 
     if (nameContainer) {
@@ -171,37 +181,42 @@ async function startAction() {
     }
 
     const essentialContainer = getElementByText('div', 'Essentials')
-        ?.nextElementSibling.children
+        ?.nextElementSibling?.children
 
-    const essentials = Array.from(essentialContainer).reduce((acc, curr) => {
-        return curr.outerText ? [...acc, curr.outerText] : acc
-    }, [])
+    if (essentialContainer) {
+        const essentials = Array.from(essentialContainer).reduce(
+            (acc, curr) => {
+                return curr.outerText ? [...acc, curr.outerText] : acc
+            },
+            []
+        )
 
-    let essentialsError = ''
+        let essentialsError = ''
 
-    for (const essential of essentials) {
-        const distantContainer = essential.includes('kilometers away')
+        for (const essential of essentials) {
+            const distantContainer = essential.includes('kilometers away')
 
-        if (distantContainer) {
-            const distant = essential.split(' ')
+            if (distantContainer) {
+                const distant = essential.split(' ')
 
-            if (Number(distant[0]) > MAX_DISTANT_KM) {
-                essentialsError = `Nope due to distant: ${distant[0]} kilometers away, (${clicksDone}/${totalClicks})`
+                if (Number(distant[0]) > MAX_DISTANT_KM) {
+                    essentialsError = `Nope due to distant: ${distant[0]} kilometers away, (${clicksDone}/${totalClicks})`
+                    break
+                }
+            }
+
+            const foundBannedWords = findWords(essential, bannedSex)
+
+            if (foundBannedWords.length) {
+                essentialsError = `Nope due to sexual oreientation essentials: ${foundBannedWords.join(
+                    ','
+                )} (${clicksDone}/${totalClicks})`
                 break
             }
         }
 
-        const foundBannedWords = findWords(essential, bannedSex)
-
-        if (foundBannedWords.length) {
-            essentialsError = `Nope due to sexual oreientation essentials: ${foundBannedWords.join(
-                ','
-            )} (${clicksDone}/${totalClicks})`
-            break
-        }
+        if (essentialsError) return clickNopeButton(essentialsError)
     }
-
-    if (essentialsError) return clickNopeButton(essentialsError)
 
     const haveChildren = getElementByText('h3', 'Family Plans')
         ?.nextElementSibling?.textContent?.toLowerCase()
