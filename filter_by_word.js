@@ -14,6 +14,7 @@ const bannedWords = [
     'singlemom',
     'single mom',
     'singlemother',
+    'single mom',
     'เกย์',
     'ชายแท้',
     'สาวสอง',
