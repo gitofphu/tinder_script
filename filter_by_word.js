@@ -13,6 +13,7 @@ const bannedWords = [
     'กะเทย',
     'singlemom',
     'singlemother',
+    'single mom',
     'เกย์',
     'ชายแท้',
     'สาวสอง',
