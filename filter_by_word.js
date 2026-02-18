@@ -58,7 +58,8 @@ const bannedWords = [
     'feminineboy',
     'notlady',
     'notladies',
-    'มีลูก'
+    'มีลูก',
+    'ไม่ใช่ผญ',
 ]
 
 const acceptedWords = [
@@ -76,7 +77,7 @@ function randomDelay(min, max) {
 
 function getElementByText(tag, text) {
     return Array.from(document.querySelectorAll(tag)).find(
-        item => item.textContent.trim() === text
+        item => item.textContent.trim() === text,
     )
 }
 
@@ -140,7 +141,7 @@ async function startAction() {
 
     if (haveOnePicture) {
         return clickNopeButton(
-            `Nope due to only have one picture: (${clicksDone}/${totalClicks})`
+            `Nope due to only have one picture: (${clicksDone}/${totalClicks})`,
         )
     }
 
@@ -156,8 +157,8 @@ async function startAction() {
         if (foundBannedWords.length) {
             return clickNopeButton(
                 `Nope due to banned words in name: ${foundBannedWords.join(
-                    ', '
-                )} (${clicksDone}/${totalClicks})`
+                    ', ',
+                )} (${clicksDone}/${totalClicks})`,
             )
         }
     }
@@ -175,8 +176,8 @@ async function startAction() {
         if (foundBannedWords.length && foundAcceptedWords.length === 0) {
             return clickNopeButton(
                 `Nope due to banned words in about me: ${foundBannedWords.join(
-                    ', '
-                )} (${clicksDone}/${totalClicks})`
+                    ', ',
+                )} (${clicksDone}/${totalClicks})`,
             )
         }
     }
@@ -189,7 +190,7 @@ async function startAction() {
             (acc, curr) => {
                 return curr.outerText ? [...acc, curr.outerText] : acc
             },
-            []
+            [],
         )
 
         let essentialsError = ''
@@ -210,7 +211,7 @@ async function startAction() {
 
             if (foundBannedWords.length) {
                 essentialsError = `Nope due to sexual oreientation essentials: ${foundBannedWords.join(
-                    ','
+                    ',',
                 )} (${clicksDone}/${totalClicks})`
                 break
             }
@@ -225,7 +226,7 @@ async function startAction() {
 
     if (haveChildren) {
         return clickNopeButton(
-            `Nope due to having children (${clicksDone}/${totalClicks})`
+            `Nope due to having children (${clicksDone}/${totalClicks})`,
         )
     }
 
