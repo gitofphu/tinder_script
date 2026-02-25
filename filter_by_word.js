@@ -60,6 +60,10 @@ const bannedWords = [
     'notladies',
     'มีลูก',
     'ไม่ใช่ผญ',
+    'muslim',
+    'มุสลิม',
+    'fat',
+    'อ้วน'
 ]
 
 const acceptedWords = [
@@ -120,7 +124,7 @@ async function startAction() {
     if (!profileBtn) {
         console.error('Profile button not found')
         retryCount++
-        setTimeout(startAction, delay)
+        setTimeout(startAction, 5000)
         return
     }
 
