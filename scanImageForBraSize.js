@@ -200,7 +200,7 @@ async function scanMultipleImagesSafely(imageArray) {
     return results
 }
 
-const nextBtn = document.querySelector('button[aria-label="Next Photo"]')
+let nextBtn = document.querySelector('button[aria-label="Next Photo"]')
 
 // Helper function for the delay
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
@@ -256,14 +256,14 @@ async function processProfileImagesSlowly() {
 }
 
 // Run it!
+nextBtn = document.querySelector('button[aria-label="Next Photo"]')
 const imageUrls = await processProfileImagesSlowly()
 
 console.log('Collected image URLs:', imageUrls)
 
-if (imageUrls.length === 0) {
+if (imageUrls?.length === 0) {
     console.error('No image URLs found to scan.')
 } else {
     const scanResults = await scanMultipleImagesSafely(imageUrls)
-
     console.log('Scan results for all images:', scanResults)
 }
