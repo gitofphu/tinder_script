@@ -2,7 +2,7 @@
 const totalClicks = 5000 // total actions to perform
 const minDelay = 500 // minimum delay in ms
 const maxDelay = 1000 // maximum delay in ms
-const MAX_DISTANT_KM = 30 // maximum distant in kilometers
+const MAX_DISTANT_KM = 40 // maximum distant in kilometers
 
 let clicksDone = 0
 let retryCount = 0
@@ -53,6 +53,8 @@ const bannedWords = [
     'เปย์',
     'notarealwoman',
     'notrealwoman',
+    'notrealgirl',
+    'notarealgirl',
     'ไม่หญิง',
     'femboy',
     'feminineboy',
@@ -63,7 +65,8 @@ const bannedWords = [
     'muslim',
     'มุสลิม',
     'fat',
-    'อ้วน'
+    'อ้วน',
+    'แม่ลูก',
 ]
 
 const acceptedWords = [
@@ -105,6 +108,15 @@ function findWords(text, wordArr) {
 async function startAction() {
     if (retryCount > 3) {
         console.error(`Too many retries. Stopping.`)
+        clicksDone = 0
+        retryCount = 0
+        return
+    }
+
+    const continueBtn = getElementByText('span', 'Continue')
+
+    if (continueBtn) {
+        console.error(`Run out of likes. Stopping.`)
         clicksDone = 0
         retryCount = 0
         return
