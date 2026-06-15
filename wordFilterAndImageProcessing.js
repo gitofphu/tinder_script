@@ -493,8 +493,6 @@ async function startAction() {
         )
     }
 
-    console.log('Collected image URLs:', imageUrls)
-
     const scanResults = await scanMultipleImagesSafely(imageUrls)
 
     console.log('Scan results for all images:', scanResults)
