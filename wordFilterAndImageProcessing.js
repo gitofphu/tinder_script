@@ -219,8 +219,8 @@ async function collectImageUrls(nextBtn) {
 
         nextBtn.click()
 
-        // Wait 1 second before moving to the next child
-        await setDelay(1000)
+        // Wait for 500 milliseconds before moving to the next child
+        await setDelay(500)
     }
 
     console.log('Finished processing all slides!')
