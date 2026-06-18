@@ -64,8 +64,8 @@ const bannedWords = [
     'ไม่ใช่ผญ',
     'muslim',
     'มุสลิม',
-    'fat',
-    'อ้วน',
+    // 'fat',
+    // 'อ้วน',
     'แม่ลูก',
 ]
 
@@ -74,6 +74,7 @@ const acceptedWords = [
     'notladyboy',
     'ไม่ใช่สาวสอง',
     'ไม่ใช่กระเทย',
+    'เป็นผู้หญิง',
 ]
 
 const bannedSex = ['gay', 'queer', 'questioning']

@@ -297,8 +297,8 @@ const bannedWords = [
     'ไม่ใช่ผญ',
     'muslim',
     'มุสลิม',
-    'fat',
-    'อ้วน',
+    // 'fat',
+    // 'อ้วน',
     'แม่ลูก',
 ]
 
@@ -307,6 +307,7 @@ const acceptedWords = [
     'notladyboy',
     'ไม่ใช่สาวสอง',
     'ไม่ใช่กระเทย',
+    'เป็นผู้หญิง',
 ]
 
 const bannedSex = ['gay', 'queer', 'questioning']
@@ -343,6 +344,11 @@ function findWords(text, wordArr) {
 // Run the main function to start the process
 
 async function startAction() {
+    const noThanksBtn = getElementByText('div', 'No Thanks')
+    if (noThanksBtn) noThanksBtn.click()
+    const maybeLaterBtn = getElementByText('div', 'Maybe Later')
+    if (maybeLaterBtn) maybeLaterBtn.click()
+
     if (retryCount > 3) {
         console.error(`Too many retries. Stopping.`)
         clicksDone = 0
@@ -511,7 +517,7 @@ async function startAction() {
         )
     })
 
-    if (maxClassId < 3) {
+    if (maxClassId < 2) {
         return clickNopeButton(
             `Nope due to low class (${clicksDone}/${totalClicks})`,
         )
@@ -539,6 +545,8 @@ async function startAction() {
         clicksDone = 0
     }
 }
+
+// const globalBtn = getElementByText('button', 'Go Global')
 
 console.log('Finished loading the script. Ready to start!')
 startAction()
