@@ -10,7 +10,7 @@ async function initializeBSizeDetectorModel(
         if (window.ort) return resolve()
         const script = document.createElement('script')
         script.src =
-            'https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js'
+            'https://cdn.jsdelivr.net/npm/onnxruntime-web@1.26.0/dist/ort.min.js'
         script.onload = resolve
         script.onerror = () => reject(new Error('Failed to load ONNX script'))
         document.head.appendChild(script)
