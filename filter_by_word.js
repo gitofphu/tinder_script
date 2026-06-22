@@ -107,6 +107,11 @@ function findWords(text, wordArr) {
 }
 
 async function startAction() {
+const noThanksBtn = getElementByText('div', 'No Thanks')
+    if (noThanksBtn) noThanksBtn.click()
+    const maybeLaterBtn = getElementByText('div', 'Maybe Later')
+    if (maybeLaterBtn) maybeLaterBtn.click()
+
     if (retryCount > 3) {
         console.error(`Too many retries. Stopping.`)
         clicksDone = 0
