@@ -5,8 +5,12 @@
     "main": "index.js",
     "scripts": {
         "build": "npm run build:filter && npm run build:full",
-        "build:filter": "esbuild src/filterByWord.js --bundle --minify --outfile=dist/filterByWord_min.js && clip < dist/filterByWord_min.js",
-        "build:full": "esbuild src/wordFilterAndImageProcessing.js --bundle --minify --outfile=dist/wordFilterAndImageProcessing_min.js && clip < dist/wordFilterAndImageProcessing_min.js"
+        "build:filter": "esbuild src/filterByWord.js --bundle --minify --outfile=dist/filterByWord_min.js",
+        "build:full": "esbuild src/wordFilterAndImageProcessing.js --bundle --minify --outfile=dist/wordFilterAndImageProcessing_min.js",
+        "copy:filter": "clip < dist/filterByWord_min.js",
+        "copy:full": "clip < dist/wordFilterAndImageProcessing_min.js",
+        "buildAndCopy:filter": "npm run build:filter && npm run copy:filter",
+        "buildAndCopy:full": "npm run build:full && npm run copy:full"
     },
     "repository": {
         "type": "git",
