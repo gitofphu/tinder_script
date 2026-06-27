@@ -13,4 +13,5 @@ export const log = {
     error: (msg, ...rest) => console.error(...tag('❌ ERROR',  '#450a0a', '#fca5a5'), msg, ...rest),
     model: (msg, ...rest) => console.log( ...tag('🤖 MODEL',  '#451a03', '#fcd34d'), msg, ...rest),
     warn:  (msg, ...rest) => console.warn( ...tag('⚠ WARN',   '#431407', '#fb923c'), msg, ...rest),
+    sleep: (ms)          => console.log( ...tag('⏸ SLEEP',  '#292524', '#a8a29e'), `${ms}ms`),
 }

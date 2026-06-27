@@ -43,6 +43,7 @@ export function createStartAction({ onBeforeLike } = {}) {
 
             if (backBtn) {
                 backBtn.click()
+                log.sleep(800)
                 await sleep(800)
             }
 
@@ -51,11 +52,13 @@ export function createStartAction({ onBeforeLike } = {}) {
             if (!profileBtn) {
                 log.warn('Profile button not found, retrying...')
                 retryCount++
-                await sleep(5000)
+                log.sleep(2000)
+                await sleep(2000)
                 continue
             }
 
             profileBtn.click()
+            log.sleep(800)
             await sleep(800)
 
             const nopeBtn = getElementByText('button', 'Nope')
@@ -63,13 +66,16 @@ export function createStartAction({ onBeforeLike } = {}) {
 
             let nopeReason = null
 
-            const haveOnePicture = document.querySelector('[aria-label="1 of 1"]')
+            const haveOnePicture = document.querySelector(
+                '[aria-label="1 of 1"]',
+            )
             if (haveOnePicture) {
                 nopeReason = `Nope due to only have one picture: (${clicksDone}/${totalClicks})`
             }
 
             if (!nopeReason) {
-                const nameContainer = document.getElementsByClassName('Pend(8px)')?.[0]
+                const nameContainer =
+                    document.getElementsByClassName('Pend(8px)')?.[0]
 
                 if (nameContainer) {
                     const name = nameContainer.textContent
@@ -85,7 +91,8 @@ export function createStartAction({ onBeforeLike } = {}) {
             }
 
             if (!nopeReason) {
-                const aboutMe = getElementByText('div', 'About me')?.nextElementSibling?.textContent
+                const aboutMe = getElementByText('div', 'About me')
+                    ?.nextElementSibling?.textContent
 
                 if (aboutMe) {
                     log.info('aboutMe:', aboutMe)
@@ -93,7 +100,10 @@ export function createStartAction({ onBeforeLike } = {}) {
                     const foundBannedWords = findWords(aboutMe, bannedWords)
                     const foundAcceptedWords = findWords(aboutMe, acceptedWords)
 
-                    if (foundBannedWords.length && foundAcceptedWords.length === 0) {
+                    if (
+                        foundBannedWords.length &&
+                        foundAcceptedWords.length === 0
+                    ) {
                         nopeReason = `Nope due to banned words in about me: ${foundBannedWords.join(', ')} (${clicksDone}/${totalClicks})`
                     }
                 }
@@ -105,7 +115,8 @@ export function createStartAction({ onBeforeLike } = {}) {
 
                 if (essentialContainer) {
                     const essentials = Array.from(essentialContainer).reduce(
-                        (acc, curr) => (curr.outerText ? [...acc, curr.outerText] : acc),
+                        (acc, curr) =>
+                            curr.outerText ? [...acc, curr.outerText] : acc,
                         [],
                     )
 
@@ -147,6 +158,7 @@ export function createStartAction({ onBeforeLike } = {}) {
                 if (!nopeBtn) {
                     log.warn('Nope button not found, retrying...')
                     retryCount++
+                    log.sleep(delay)
                     await sleep(delay)
                     continue
                 }
@@ -156,6 +168,7 @@ export function createStartAction({ onBeforeLike } = {}) {
                 log.nope(nopeReason)
 
                 if (clicksDone < totalClicks) {
+                    log.sleep(delay)
                     await sleep(delay)
                     continue
                 }
@@ -169,6 +182,7 @@ export function createStartAction({ onBeforeLike } = {}) {
             if (!likeBtn || likeBtn.getAttribute('aria-disabled') === 'true') {
                 log.warn('Like button not found or disabled!')
                 retryCount++
+                log.sleep(delay)
                 await sleep(delay)
                 continue
             }
@@ -179,7 +193,7 @@ export function createStartAction({ onBeforeLike } = {}) {
             log.like(`Liked (${clicksDone}/${totalClicks})`)
 
             if (clicksDone < totalClicks) {
-                log.info(`Waiting for ${delay} ms before next action...`)
+                log.sleep(delay)
                 await sleep(delay)
             } else {
                 log.loop('Finished all actions.')
