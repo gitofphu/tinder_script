@@ -57,10 +57,7 @@ export function createStartExecution(startAction, maxExecutionCount = 3) {
     let executionCount = 0
 
     const startExecution = async (totalClicks = 100) => {
-        if (isAborted()) {
-            log.error('Script aborted.')
-            return
-        }
+        resetAbort()
 
         log.loop(
             `Starting execution... (${executionCount}/${maxExecutionCount})`,

@@ -11,4 +11,3 @@ const startExecution = createStartExecution(startAction, MAX_EXECUTION_COUNT)
 startExecution(TOTAL_CLICKS)
 window.startExecution = startExecution
 window.stopScript = abortScript
-window.resetScript = resetAbort

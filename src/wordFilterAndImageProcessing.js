@@ -60,7 +60,6 @@ const TOTAL_CLICKS = 1000
     window.startAction = startAction
     window.startExecution = startExecution
     window.stopScript = abortScript
-    window.resetScript = resetAbort
     log.info('Finished loading the script. Ready to start!')
     startExecution(TOTAL_CLICKS)
 })()
