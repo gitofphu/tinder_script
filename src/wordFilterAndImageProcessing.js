@@ -2,20 +2,24 @@ import { createStartAction } from './actions/startAction.js'
 import { createStartExecution } from './actions/startExecution.js'
 import { initializeBSizeDetectorModel } from './image/detector.js'
 import { scanMultipleImagesSafely, collectImageUrls } from './image/scanner.js'
-
 ;(async () => {
     const scanImageForBraSize = await initializeBSizeDetectorModel()
 
     const startAction = createStartAction({
         onBeforeLike: async (clicksDone, totalClicks) => {
-            const nextBtn = document.querySelector('button[aria-label="Next Photo"]')
+            const nextBtn = document.querySelector(
+                'button[aria-label="Next Photo"]',
+            )
             const imageUrls = await collectImageUrls(nextBtn)
 
             if (!imageUrls?.length) {
                 return `Nope due to no images available (${clicksDone}/${totalClicks})`
             }
 
-            const scanResults = await scanMultipleImagesSafely(imageUrls, scanImageForBraSize)
+            const scanResults = await scanMultipleImagesSafely(
+                imageUrls,
+                scanImageForBraSize,
+            )
 
             console.log('Scan results for all images:', scanResults)
 
@@ -41,7 +45,7 @@ import { scanMultipleImagesSafely, collectImageUrls } from './image/scanner.js'
         },
     })
 
-    const startExecution = createStartExecution(startAction)
+    const startExecution = createStartExecution(startAction, 6)
 
     window.scanImageForBraSize = scanImageForBraSize
     window.startAction = startAction

@@ -41,9 +41,8 @@ async function looping(startAction) {
     console.log('Loop finished!')
 }
 
-export function createStartExecution(startAction) {
+export function createStartExecution(startAction, maxExecutionCount = 3) {
     let executionCount = 0
-    const maxExecutionCount = 3
 
     const startExecution = async () => {
         console.log(
