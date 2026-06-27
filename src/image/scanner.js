@@ -1,7 +1,8 @@
 import { sleep } from '../utils/timing.js'
+import { log } from '../utils/logger.js'
 
 export async function scanMultipleImagesSafely(imageArray, scanFn) {
-    console.log(`⏳ Starting sequential scan of ${imageArray.length} images...`)
+    log.scan(`Starting sequential scan of ${imageArray.length} images...`)
     const results = []
 
     for (const img of imageArray) {
@@ -9,12 +10,12 @@ export async function scanMultipleImagesSafely(imageArray, scanFn) {
             const result = await scanFn(img)
             results.push({ ...result, imageSource: img })
         } catch (error) {
-            console.error('❌ Failed to scan an image:', error)
+            log.error('Failed to scan an image:', error)
             results.push({ success: false, error: error.message })
         }
     }
 
-    console.log('✅ All images processed!')
+    log.scan('All images processed!')
     return results
 }
 
@@ -24,7 +25,7 @@ export async function collectImageUrls(nextBtn) {
     const sliderContainer = document.querySelector('.profileCard__slider.keen-slider')
 
     if (!sliderContainer) {
-        console.log('Could not find the slider container.')
+        log.warn('Could not find the slider container.')
         return collectedUrls
     }
 
@@ -48,6 +49,6 @@ export async function collectImageUrls(nextBtn) {
         await sleep(500)
     }
 
-    console.log('Finished processing all slides!')
+    log.scan('Finished processing all slides!')
     return collectedUrls
 }

@@ -1,7 +1,31 @@
+import { log } from '../utils/logger.js'
+
+const classIdToBraSize = {
+    0: 'Flat',
+    1: 'Small',
+    2: 'Medium',
+    3: 'Large',
+    4: 'Huge',
+    5: 'Gigantic',
+    6: 'Gigantic+',
+    7: 'Hyper',
+    8: 'Hyper+',
+    9: 'Hyper++',
+    10: 'Extreme',
+    11: 'Extreme+',
+    12: 'Extreme++',
+    13: 'Titan',
+    14: 'Unmeasurable / Out of frame',
+}
+
+export function getBraSizeFromClassId(classId) {
+    return classIdToBraSize[classId] || 'Unknown'
+}
+
 export async function initializeBSizeDetectorModel(
     modelUrl = 'https://raw.githubusercontent.com/gitofphu/tinder_script/main/Anzhcs_Breast_size_det_cls_v8_640_y11m.onnx',
 ) {
-    console.log('⏳ Step 1: Loading ONNX Runtime Web script...')
+    log.model('Step 1: Loading ONNX Runtime Web script...')
 
     await new Promise((resolve, reject) => {
         if (window.ort) return resolve()
@@ -13,13 +37,13 @@ export async function initializeBSizeDetectorModel(
         document.head.appendChild(script)
     })
 
-    console.log('⏳ Step 2: Downloading and preparing YOLO model (38MB)...')
+    log.model('Step 2: Downloading and preparing YOLO model (38MB)...')
 
     const session = await ort.InferenceSession.create(modelUrl, {
         executionProviders: ['webgpu', 'wasm'],
     })
 
-    console.log('🚀 Model successfully cached in browser memory! Ready to scan.')
+    log.model('Model successfully cached in browser memory! Ready to scan.')
 
     let isScanning = false
 
@@ -49,11 +73,13 @@ export async function initializeBSizeDetectorModel(
                     imgElement.onerror = reject
                 })
             } catch (err) {
-                console.error('❌ Failed to load image from URL.')
+                log.error('Failed to load image from URL.')
                 return { success: false, reason: 'Invalid or blocked URL' }
             }
         } else if (!imgElement || imgElement.tagName !== 'IMG') {
-            console.error('❌ Please pass a valid <img> element or an image URL string.')
+            log.error(
+                'Please pass a valid <img> element or an image URL string.',
+            )
             return null
         }
 
@@ -65,17 +91,29 @@ export async function initializeBSizeDetectorModel(
             const ctx = canvas.getContext('2d')
 
             ctx.drawImage(imgElement, 0, 0, targetSize, targetSize)
-            const imageData = ctx.getImageData(0, 0, targetSize, targetSize).data
+            const imageData = ctx.getImageData(
+                0,
+                0,
+                targetSize,
+                targetSize,
+            ).data
 
             const float32Data = new Float32Array(3 * targetSize * targetSize)
             for (let i = 0; i < targetSize * targetSize; i++) {
                 float32Data[i] = imageData[i * 4] / 255.0
-                float32Data[targetSize * targetSize + i] = imageData[i * 4 + 1] / 255.0
-                float32Data[2 * targetSize * targetSize + i] = imageData[i * 4 + 2] / 255.0
+                float32Data[targetSize * targetSize + i] =
+                    imageData[i * 4 + 1] / 255.0
+                float32Data[2 * targetSize * targetSize + i] =
+                    imageData[i * 4 + 2] / 255.0
             }
 
             const inputName = session.inputNames[0]
-            const inputTensor = new ort.Tensor('float32', float32Data, [1, 3, targetSize, targetSize])
+            const inputTensor = new ort.Tensor('float32', float32Data, [
+                1,
+                3,
+                targetSize,
+                targetSize,
+            ])
 
             const results = await session.run({ [inputName]: inputTensor })
             const outputName = session.outputNames[0]
@@ -137,6 +175,7 @@ export async function initializeBSizeDetectorModel(
                 return {
                     success: true,
                     classId: bestClassIndex,
+                    braSize: getBraSizeFromClassId(bestClassIndex),
                     confidence: `${(bestScore * 100).toFixed(1)}%`,
                     box: bestBox,
                 }
@@ -144,9 +183,8 @@ export async function initializeBSizeDetectorModel(
                 return { success: false, reason: 'Low confidence score' }
             }
         } catch (err) {
-            console.error('❌ Scan Error:', err)
+            log.error('Scan Error:', err)
             return { success: false, error: err.message }
         }
     }
 }
-

@@ -1,5 +1,6 @@
 import { getElementByText } from '../utils/dom.js'
 import { sleep } from '../utils/timing.js'
+import { log } from '../utils/logger.js'
 
 const exploreList = [
     'Long-term partner',
@@ -22,60 +23,60 @@ const exploreList = [
     'Animal Parents',
 ]
 
-async function looping(startAction) {
-    console.log('Starting loop...')
+async function loopingExplore(startAction) {
+    log.loop('Starting loop explore...')
 
     for (const item of exploreList) {
-        console.log(`Processing item: ${item}`)
+        log.event(`Processing explore: "${item}"`)
 
         const itemBtn = getElementByText('div', item)
         if (!itemBtn) {
-            console.log(`Item button for "${item}" not found`)
+            log.warn(`Item button for "${item}" not found, skipping...`)
             continue
         }
+        log.loop(`Done with "${item}", moving to next explore...`)
+
         itemBtn.click()
         await sleep(2000)
         await startAction()
     }
 
-    console.log('Loop finished!')
+    log.loop('Loop explore finished!')
 }
 
 export function createStartExecution(startAction, maxExecutionCount = 3) {
     let executionCount = 0
 
     const startExecution = async () => {
-        console.log(
-            `Starting execution... (Execution count: ${executionCount}/${maxExecutionCount})`,
+        log.loop(
+            `Starting execution... (${executionCount}/${maxExecutionCount})`,
         )
 
         const path = window.location.pathname.split('/')
 
         if (path[2] === 'recs') {
-            console.log('Mode: recs')
+            log.event('Mode: recs')
             await startAction()
         } else if (path[2] === 'explore') {
-            console.log('Mode: explore')
-            await looping(startAction)
+            log.event('Mode: explore')
+            await loopingExplore(startAction)
         }
 
         const exploreBtn = getElementByText('a', 'Explore')
         if (!exploreBtn) {
-            console.log('exploreBtn not found, stopping...')
+            log.warn('Explore button not found, stopping...')
             return
         }
 
         executionCount++
         if (executionCount >= maxExecutionCount) {
-            console.log('Execution count exceeded. Stopping execution.')
+            log.loop('Max execution count reached. Stopping.')
             return
         }
 
         exploreBtn.click()
 
-        console.log(
-            'execution finished, waiting for 5 seconds before starting the next action...',
-        )
+        log.loop(`Execution ${executionCount} done, waiting 5s before next...`)
 
         setTimeout(startExecution, 5000)
     }

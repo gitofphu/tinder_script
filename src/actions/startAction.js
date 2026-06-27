@@ -8,6 +8,7 @@ import { bannedWords, acceptedWords, bannedSex } from '../constants/words.js'
 import { getElementByText } from '../utils/dom.js'
 import { findWords } from '../utils/text.js'
 import { randomDelay, sleep } from '../utils/timing.js'
+import { log } from '../utils/logger.js'
 
 /**
  * @param {{ onBeforeLike?: (clicksDone: number, totalClicks: number) => Promise<string|null> }} options
@@ -27,14 +28,14 @@ export function createStartAction({ onBeforeLike } = {}) {
             if (closeBtn) closeBtn.click()
 
             if (retryCount > 3) {
-                console.error(`Too many retries. Stopping.`)
+                log.error('Too many retries. Stopping.')
                 return
             }
 
             const continueBtn = getElementByText('span', 'Continue')
 
             if (continueBtn) {
-                console.error(`Run out of likes. Stopping.`)
+                log.error('Run out of likes. Stopping.')
                 return
             }
 
@@ -48,7 +49,7 @@ export function createStartAction({ onBeforeLike } = {}) {
             const profileBtn = getElementByText('div', 'Open Profile')
 
             if (!profileBtn) {
-                console.error('Profile button not found')
+                log.warn('Profile button not found, retrying...')
                 retryCount++
                 await sleep(5000)
                 continue
@@ -73,7 +74,7 @@ export function createStartAction({ onBeforeLike } = {}) {
                 if (nameContainer) {
                     const name = nameContainer.textContent
 
-                    console.log('name:', name)
+                    log.info('name:', name)
 
                     const foundBannedWords = findWords(name, bannedWords)
 
@@ -87,7 +88,7 @@ export function createStartAction({ onBeforeLike } = {}) {
                 const aboutMe = getElementByText('div', 'About me')?.nextElementSibling?.textContent
 
                 if (aboutMe) {
-                    console.log('aboutMe:', aboutMe)
+                    log.info('aboutMe:', aboutMe)
 
                     const foundBannedWords = findWords(aboutMe, bannedWords)
                     const foundAcceptedWords = findWords(aboutMe, acceptedWords)
@@ -144,7 +145,7 @@ export function createStartAction({ onBeforeLike } = {}) {
 
             if (nopeReason) {
                 if (!nopeBtn) {
-                    console.error('Nope button not found, retrying...')
+                    log.warn('Nope button not found, retrying...')
                     retryCount++
                     await sleep(delay)
                     continue
@@ -152,21 +153,21 @@ export function createStartAction({ onBeforeLike } = {}) {
 
                 nopeBtn.click()
                 clicksDone++
-                console.error(nopeReason)
+                log.nope(nopeReason)
 
                 if (clicksDone < totalClicks) {
                     await sleep(delay)
                     continue
                 }
 
-                console.log('Finished all actions.')
+                log.loop('Finished all actions.')
                 return
             }
 
             const likeBtn = getElementByText('button', 'Like')
 
             if (!likeBtn || likeBtn.getAttribute('aria-disabled') === 'true') {
-                console.error(`Like button not found or disabled!`)
+                log.warn('Like button not found or disabled!')
                 retryCount++
                 await sleep(delay)
                 continue
@@ -175,13 +176,13 @@ export function createStartAction({ onBeforeLike } = {}) {
             likeBtn.click()
             retryCount = 0
             clicksDone++
-            console.log(`Liked (${clicksDone}/${totalClicks})`)
+            log.like(`Liked (${clicksDone}/${totalClicks})`)
 
             if (clicksDone < totalClicks) {
-                console.log(`Waiting for ${delay} ms before next action...`)
+                log.info(`Waiting for ${delay} ms before next action...`)
                 await sleep(delay)
             } else {
-                console.log('Finished all actions.')
+                log.loop('Finished all actions.')
                 return
             }
         }

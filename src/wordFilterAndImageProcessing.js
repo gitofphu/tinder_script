@@ -2,6 +2,7 @@ import { createStartAction } from './actions/startAction.js'
 import { createStartExecution } from './actions/startExecution.js'
 import { initializeBSizeDetectorModel } from './image/detector.js'
 import { scanMultipleImagesSafely, collectImageUrls } from './image/scanner.js'
+import { log } from './utils/logger.js'
 ;(async () => {
     const scanImageForBraSize = await initializeBSizeDetectorModel()
 
@@ -21,7 +22,7 @@ import { scanMultipleImagesSafely, collectImageUrls } from './image/scanner.js'
                 scanImageForBraSize,
             )
 
-            console.log('Scan results for all images:', scanResults)
+            log.scan('Scan results for all images:', scanResults)
 
             let maxClassId = 0
 
@@ -32,8 +33,8 @@ import { scanMultipleImagesSafely, collectImageUrls } from './image/scanner.js'
                     maxClassId = result.classId
                 }
 
-                console.log(
-                    `✅ Image ${index + 1}: Class ${result.classId} with confidence ${result.confidence}, Source: ${result.imageSource}`,
+                log.scan(
+                    `Image ${index + 1}: Class ${result.classId} (${result.braSize}) with confidence ${result.confidence}, Source: ${result.imageSource}`,
                 )
             })
 
@@ -50,6 +51,6 @@ import { scanMultipleImagesSafely, collectImageUrls } from './image/scanner.js'
     window.scanImageForBraSize = scanImageForBraSize
     window.startAction = startAction
     window.startExecution = startExecution
-    console.log('Finished loading the script. Ready to start!')
+    log.info('Finished loading the script. Ready to start!')
     startExecution()
 })()
