@@ -35,6 +35,7 @@ async function loopingExplore(startAction, totalClicks) {
             continue
         }
 
+        log.event(`Click: "${item}"`)
         itemBtn.click()
         log.sleep(2000)
         await sleep(2000)
@@ -75,6 +76,7 @@ export function createStartExecution(startAction, maxExecutionCount = 3) {
             return
         }
 
+        log.event('Click: Explore')
         exploreBtn.click()
 
         log.loop(`Execution ${executionCount} done, waiting 5s before next...`)

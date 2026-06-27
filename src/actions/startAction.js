@@ -1,8 +1,4 @@
-import {
-    minDelay,
-    maxDelay,
-    MAX_DISTANT_KM,
-} from '../constants/settings.js'
+import { minDelay, maxDelay, MAX_DISTANT_KM } from '../constants/settings.js'
 import { bannedWords, acceptedWords, bannedSex } from '../constants/words.js'
 import { getElementByText } from '../utils/dom.js'
 import { findWords } from '../utils/text.js'
@@ -20,11 +16,20 @@ export function createStartAction({ onBeforeLike } = {}) {
 
         while (true) {
             const noThanksBtn = getElementByText('div', 'No Thanks')
-            if (noThanksBtn) noThanksBtn.click()
+            if (noThanksBtn) {
+                log.event('Click: No Thanks')
+                noThanksBtn.click()
+            }
             const maybeLaterBtn = getElementByText('div', 'Maybe Later')
-            if (maybeLaterBtn) maybeLaterBtn.click()
+            if (maybeLaterBtn) {
+                log.event('Click: Maybe Later')
+                maybeLaterBtn.click()
+            }
             const closeBtn = getElementByText('div', 'Close')
-            if (closeBtn) closeBtn.click()
+            if (closeBtn) {
+                log.event('Click: Close')
+                closeBtn.click()
+            }
 
             if (retryCount > 3) {
                 log.error('Too many retries. Stopping.')
@@ -41,6 +46,7 @@ export function createStartAction({ onBeforeLike } = {}) {
             const backBtn = getElementByText('span', 'Back')?.parentElement
 
             if (backBtn) {
+                log.event('Click: Back')
                 backBtn.click()
                 log.sleep(800)
                 await sleep(800)
@@ -56,6 +62,7 @@ export function createStartAction({ onBeforeLike } = {}) {
                 continue
             }
 
+            log.event('Click: Open Profile')
             profileBtn.click()
             log.sleep(800)
             await sleep(800)
@@ -162,6 +169,7 @@ export function createStartAction({ onBeforeLike } = {}) {
                     continue
                 }
 
+                log.event('Click: Nope')
                 nopeBtn.click()
                 clicksDone++
                 log.nope(nopeReason)
@@ -186,6 +194,7 @@ export function createStartAction({ onBeforeLike } = {}) {
                 continue
             }
 
+            log.event('Click: Like')
             likeBtn.click()
             retryCount = 0
             clicksDone++

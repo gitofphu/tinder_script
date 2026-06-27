@@ -22,7 +22,9 @@ export async function scanMultipleImagesSafely(imageArray, scanFn) {
 export async function collectImageUrls(nextBtn) {
     const collectedUrls = []
 
-    const sliderContainer = document.querySelector('.profileCard__slider.keen-slider')
+    const sliderContainer = document.querySelector(
+        '.profileCard__slider.keen-slider',
+    )
 
     if (!sliderContainer) {
         log.warn('Could not find the slider container.')
@@ -45,7 +47,11 @@ export async function collectImageUrls(nextBtn) {
             }
         }
 
-        nextBtn?.click()
+        if (nextBtn) {
+            log.event('Click: Next')
+            nextBtn.click()
+        }
+
         log.sleep(500)
         await sleep(500)
     }
