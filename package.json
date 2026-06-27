@@ -1,0 +1,27 @@
+{
+    "name": "tinder_script",
+    "version": "1.0.0",
+    "description": "Ref: https://gemini.google.com/share/bfe6f049f1a4",
+    "main": "index.js",
+    "scripts": {
+        "build": "npm run build:filter && npm run build:full",
+        "build:filter": "esbuild src/filter_by_word.js --bundle --minify --outfile=dist/filter_by_word.js",
+        "build:full": "esbuild src/wordFilterAndImageProcessing.js --bundle --minify --outfile=dist/wordFilterAndImageProcessing.js",
+        "build:bundle": "esbuild index.js --bundle --outfile=dist/bundle.js",
+        "build:bundle:min": "esbuild index.js --bundle --minify --outfile=dist/bundle.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/gitofphu/tinder_script.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/gitofphu/tinder_script/issues"
+    },
+    "homepage": "https://github.com/gitofphu/tinder_script#readme",
+    "devDependencies": {
+        "esbuild": "^0.28.1"
+    }
+}

@@ -1,0 +1,9 @@
+node_modules/
+dist/
+
+# Compiled root-level bundle
+bundle.js
+
+# Large model files (download separately)
+*.onnx
+*.pt

@@ -348,6 +348,8 @@ async function startAction() {
     if (noThanksBtn) noThanksBtn.click()
     const maybeLaterBtn = getElementByText('div', 'Maybe Later')
     if (maybeLaterBtn) maybeLaterBtn.click()
+    const closeBtn = getElementByText('div', 'Close')
+    if (closeBtn) closeBtn.click()
 
     if (retryCount > 3) {
         console.error(`Too many retries. Stopping.`)

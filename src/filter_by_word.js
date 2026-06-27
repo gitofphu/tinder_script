@@ -1,110 +1,16 @@
-// SETTINGS
-const totalClicks = 5000 // total actions to perform
-const minDelay = 500 // minimum delay in ms
-const maxDelay = 1000 // maximum delay in ms
-const MAX_DISTANT_KM = 40 // maximum distant in kilometers
+import {
+    totalClicks,
+    minDelay,
+    maxDelay,
+    MAX_DISTANT_KM,
+} from './constants/settings.js'
+import { bannedWords, acceptedWords, bannedSex } from './constants/words.js'
+import { getElementByText } from './utils/dom.js'
+import { findWords } from './utils/text.js'
+import { randomDelay, sleep } from './utils/timing.js'
 
 let clicksDone = 0
 let retryCount = 0
-
-const bannedWords = [
-    'ladyboy',
-    'กระเทย',
-    'กะเทย',
-    'singlemom',
-    'single mom',
-    'singlemother',
-    'single mom',
-    'เกย์',
-    'ชายแท้',
-    'สาวสอง',
-    'gay',
-    'transgender',
-    'trangender',
-    'lgbt',
-    'lgtv',
-    'สาว2',
-    'เลี้ยงเดี่ยว',
-    'notgirl',
-    'notagirl',
-    'ใช่ผู้หญิง',
-    'ใช่ผญ',
-    '🏳️‍🌈',
-    '🌈',
-    'ไม่ใช่ผญ',
-    'สาวส',
-    '🏳️‍⚧️',
-    'ข้ามเพศ',
-    'แปลงเพศ',
-    'notwoman',
-    'notawoman',
-    'ประเภท2',
-    'ประเภทสอง',
-    'ลูกติด',
-    'trans',
-    'ตุ๊ด',
-    'ไม่ใช่ญแท้',
-    '🐍',
-    'นมงู',
-    'ทราน',
-    'มีงู',
-    'ไม่แปลง',
-    'ว2',
-    'เปย์',
-    'notarealwoman',
-    'notrealwoman',
-    'notrealgirl',
-    'notarealgirl',
-    'ไม่หญิง',
-    'femboy',
-    'feminineboy',
-    'notlady',
-    'notladies',
-    'มีลูก',
-    'ไม่ใช่ผญ',
-    'muslim',
-    'มุสลิม',
-    // 'fat',
-    // 'อ้วน',
-    'แม่ลูก',
-]
-
-const acceptedWords = [
-    'notaladyboy',
-    'notladyboy',
-    'ไม่ใช่สาวสอง',
-    'ไม่ใช่กระเทย',
-    'เป็นผู้หญิง',
-]
-
-const bannedSex = ['gay', 'queer', 'questioning']
-
-function randomDelay(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min
-}
-
-function getElementByText(tag, text) {
-    return Array.from(document.querySelectorAll(tag)).find(
-        item => item.textContent.trim() === text,
-    )
-}
-
-function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms))
-}
-
-function cleanText(text) {
-    return text
-        .toLowerCase()
-        .replace(/[^a-zA-Z0-9\u0E00-\u0E7F\p{Emoji}\p{Emoji_Component} ]/gu, '')
-        .replace(/\s+/g, '')
-}
-
-function findWords(text, wordArr) {
-    const texts = cleanText(text)
-
-    return wordArr.filter(word => texts.includes(word.toLowerCase()))
-}
 
 async function startAction() {
     const noThanksBtn = getElementByText('div', 'No Thanks')
@@ -180,9 +86,7 @@ async function startAction() {
 
         if (foundBannedWords.length) {
             return clickNopeButton(
-                `Nope due to banned words in name: ${foundBannedWords.join(
-                    ', ',
-                )} (${clicksDone}/${totalClicks})`,
+                `Nope due to banned words in name: ${foundBannedWords.join(', ')} (${clicksDone}/${totalClicks})`,
             )
         }
     }
@@ -194,14 +98,11 @@ async function startAction() {
         console.log('aboutMe:', aboutMe)
 
         const foundBannedWords = findWords(aboutMe, bannedWords)
-
         const foundAcceptedWords = findWords(aboutMe, acceptedWords)
 
         if (foundBannedWords.length && foundAcceptedWords.length === 0) {
             return clickNopeButton(
-                `Nope due to banned words in about me: ${foundBannedWords.join(
-                    ', ',
-                )} (${clicksDone}/${totalClicks})`,
+                `Nope due to banned words in about me: ${foundBannedWords.join(', ')} (${clicksDone}/${totalClicks})`,
             )
         }
     }
@@ -234,9 +135,7 @@ async function startAction() {
             const foundBannedWords = findWords(essential, bannedSex)
 
             if (foundBannedWords.length) {
-                essentialsError = `Nope due to sexual oreientation essentials: ${foundBannedWords.join(
-                    ',',
-                )} (${clicksDone}/${totalClicks})`
+                essentialsError = `Nope due to sexual oreientation essentials: ${foundBannedWords.join(',')} (${clicksDone}/${totalClicks})`
                 break
             }
         }
@@ -277,4 +176,4 @@ async function startAction() {
     }
 }
 
-startAction()
+window.startAction = startAction
