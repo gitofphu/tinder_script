@@ -38,14 +38,14 @@ export function createStartAction({ onBeforeLike } = {}) {
             }
 
             if (retryCount > 3) {
-                log.error('Too many retries. Stopping.')
+                log.error('Too many retries. Stopping current action.')
                 return
             }
 
             const continueBtn = getElementByText('span', 'Continue')
 
             if (continueBtn) {
-                log.error('Run out of likes. Stopping.')
+                log.error('Run out of likes. Stopping current action.')
                 return
             }
 

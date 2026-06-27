@@ -53,10 +53,10 @@ async function loopingExplore(startAction, totalClicks) {
     log.loop('Loop explore finished!')
 }
 
-export function createStartExecution(startAction, maxExecutionCount = 3) {
+export function createStartExecution(startAction) {
     let executionCount = 1
 
-    const startExecution = async (totalClicks = 100) => {
+    const startExecution = async (totalClicks = 100, maxExecutionCount = 3) => {
         resetAbort()
 
         log.loop(
@@ -75,13 +75,13 @@ export function createStartExecution(startAction, maxExecutionCount = 3) {
 
         const exploreBtn = getElementByText('a', 'Explore')
         if (!exploreBtn) {
-            log.warn('Explore button not found, stopping...')
+            log.warn('Explore button not found, stopping execution.')
             return
         }
 
         executionCount++
         if (executionCount - 1 >= maxExecutionCount) {
-            log.loop('Max execution count reached. Stopping.')
+            log.loop('Max execution count reached. Stopping execution.')
             executionCount = 0
             return
         }

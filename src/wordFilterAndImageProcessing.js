@@ -51,15 +51,12 @@ const TOTAL_CLICKS = 1000
         },
     })
 
-    const startExecution = createStartExecution(
-        startAction,
-        MAX_EXECUTION_COUNT,
-    )
+    const startExecution = createStartExecution(startAction)
 
     window.scanImageForBraSize = scanImageForBraSize
     window.startAction = startAction
     window.startExecution = startExecution
     window.stopScript = abortScript
     log.info('Finished loading the script. Ready to start!')
-    startExecution(TOTAL_CLICKS)
+    startExecution(TOTAL_CLICKS, MAX_EXECUTION_COUNT)
 })()
