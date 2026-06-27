@@ -3,6 +3,10 @@ import { createStartExecution } from './actions/startExecution.js'
 import { initializeBSizeDetectorModel } from './image/detector.js'
 import { scanMultipleImagesSafely, collectImageUrls } from './image/scanner.js'
 import { log } from './utils/logger.js'
+
+const MAX_EXECUTION_COUNT = 6
+const TOTAL_CLICKS = 1000
+
 ;(async () => {
     const scanImageForBraSize = await initializeBSizeDetectorModel()
 
@@ -46,11 +50,14 @@ import { log } from './utils/logger.js'
         },
     })
 
-    const startExecution = createStartExecution(startAction, 6)
+    const startExecution = createStartExecution(
+        startAction,
+        MAX_EXECUTION_COUNT,
+    )
 
     window.scanImageForBraSize = scanImageForBraSize
     window.startAction = startAction
     window.startExecution = startExecution
     log.info('Finished loading the script. Ready to start!')
-    startExecution(1000)
+    startExecution(TOTAL_CLICKS)
 })()

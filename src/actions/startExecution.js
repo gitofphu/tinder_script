@@ -49,7 +49,7 @@ async function loopingExplore(startAction, totalClicks) {
 export function createStartExecution(startAction, maxExecutionCount = 3) {
     let executionCount = 0
 
-    const startExecution = async (totalClicks) => {
+    const startExecution = async (totalClicks = 100) => {
         log.loop(
             `Starting execution... (${executionCount}/${maxExecutionCount})`,
         )

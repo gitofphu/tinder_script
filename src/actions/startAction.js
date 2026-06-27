@@ -10,7 +10,7 @@ import { log } from '../utils/logger.js'
  * onBeforeLike: return a nope reason string to skip, or null to proceed with like
  */
 export function createStartAction({ onBeforeLike } = {}) {
-    async function startAction(totalClicks) {
+    async function startAction(totalClicks = 100) {
         let clicksDone = 0
         let retryCount = 0
 
