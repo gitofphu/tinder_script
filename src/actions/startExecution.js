@@ -54,7 +54,7 @@ async function loopingExplore(startAction, totalClicks) {
 }
 
 export function createStartExecution(startAction, maxExecutionCount = 3) {
-    let executionCount = 0
+    let executionCount = 1
 
     const startExecution = async (totalClicks = 100) => {
         resetAbort()
@@ -80,15 +80,18 @@ export function createStartExecution(startAction, maxExecutionCount = 3) {
         }
 
         executionCount++
-        if (executionCount >= maxExecutionCount) {
+        if (executionCount - 1 >= maxExecutionCount) {
             log.loop('Max execution count reached. Stopping.')
+            executionCount = 0
             return
         }
 
         log.event('Click: Explore')
         exploreBtn.click()
 
-        log.loop(`Execution ${executionCount} done, waiting 5s before next...`)
+        log.loop(
+            `Execution ${executionCount - 1} done, waiting 5s before next...`,
+        )
 
         setTimeout(() => {
             if (!isAborted()) startExecution(totalClicks)
