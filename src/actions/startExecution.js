@@ -37,6 +37,7 @@ async function loopingExplore(startAction) {
         log.loop(`Done with "${item}", moving to next explore...`)
 
         itemBtn.click()
+        log.sleep(2000)
         await sleep(2000)
         await startAction()
     }

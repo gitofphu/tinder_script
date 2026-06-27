@@ -46,6 +46,7 @@ export async function collectImageUrls(nextBtn) {
         }
 
         nextBtn?.click()
+        log.sleep(500)
         await sleep(500)
     }
 
