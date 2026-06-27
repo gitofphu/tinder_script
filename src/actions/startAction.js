@@ -1,5 +1,4 @@
 import {
-    totalClicks,
     minDelay,
     maxDelay,
     MAX_DISTANT_KM,
@@ -15,7 +14,7 @@ import { log } from '../utils/logger.js'
  * onBeforeLike: return a nope reason string to skip, or null to proceed with like
  */
 export function createStartAction({ onBeforeLike } = {}) {
-    async function startAction() {
+    async function startAction(totalClicks) {
         let clicksDone = 0
         let retryCount = 0
 

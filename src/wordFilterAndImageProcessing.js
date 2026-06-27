@@ -52,5 +52,5 @@ import { log } from './utils/logger.js'
     window.startAction = startAction
     window.startExecution = startExecution
     log.info('Finished loading the script. Ready to start!')
-    startExecution()
+    startExecution(1000)
 })()

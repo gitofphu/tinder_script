@@ -23,7 +23,7 @@ const exploreList = [
     'Animal Parents',
 ]
 
-async function loopingExplore(startAction) {
+async function loopingExplore(startAction, totalClicks) {
     log.loop('Starting loop explore...')
 
     for (const item of exploreList) {
@@ -34,12 +34,12 @@ async function loopingExplore(startAction) {
             log.warn(`Item button for "${item}" not found, skipping...`)
             continue
         }
-        log.loop(`Done with "${item}", moving to next explore...`)
 
         itemBtn.click()
         log.sleep(2000)
         await sleep(2000)
-        await startAction()
+        await startAction(totalClicks)
+        log.loop(`Done with "${item}", moving to next explore...`)
     }
 
     log.loop('Loop explore finished!')
@@ -48,7 +48,7 @@ async function loopingExplore(startAction) {
 export function createStartExecution(startAction, maxExecutionCount = 3) {
     let executionCount = 0
 
-    const startExecution = async () => {
+    const startExecution = async (totalClicks) => {
         log.loop(
             `Starting execution... (${executionCount}/${maxExecutionCount})`,
         )
@@ -57,10 +57,10 @@ export function createStartExecution(startAction, maxExecutionCount = 3) {
 
         if (path[2] === 'recs') {
             log.event('Mode: recs')
-            await startAction()
+            await startAction(totalClicks)
         } else if (path[2] === 'explore') {
             log.event('Mode: explore')
-            await loopingExplore(startAction)
+            await loopingExplore(startAction, totalClicks)
         }
 
         const exploreBtn = getElementByText('a', 'Explore')
@@ -79,7 +79,7 @@ export function createStartExecution(startAction, maxExecutionCount = 3) {
 
         log.loop(`Execution ${executionCount} done, waiting 5s before next...`)
 
-        setTimeout(startExecution, 5000)
+        setTimeout(() => startExecution(totalClicks), 5000)
     }
 
     return startExecution
