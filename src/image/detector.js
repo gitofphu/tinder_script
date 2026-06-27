@@ -21,7 +21,21 @@ export async function initializeBSizeDetectorModel(
 
     console.log('🚀 Model successfully cached in browser memory! Ready to scan.')
 
+    let isScanning = false
+
     return async function (input) {
+        while (isScanning) {
+            await new Promise(r => setTimeout(r, 50))
+        }
+        isScanning = true
+        try {
+            return await scan(input)
+        } finally {
+            isScanning = false
+        }
+    }
+
+    async function scan(input) {
         let imgElement = input
 
         if (typeof input === 'string') {
@@ -135,3 +149,4 @@ export async function initializeBSizeDetectorModel(
         }
     }
 }
+

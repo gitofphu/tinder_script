@@ -1,4 +1,5 @@
 import { createStartAction } from './actions/startAction.js'
+import { createStartExecution } from './actions/startExecution.js'
 import { initializeBSizeDetectorModel } from './image/detector.js'
 import { scanMultipleImagesSafely, collectImageUrls } from './image/scanner.js'
 
@@ -40,8 +41,11 @@ import { scanMultipleImagesSafely, collectImageUrls } from './image/scanner.js'
         },
     })
 
+    const startExecution = createStartExecution(startAction)
+
     window.scanImageForBraSize = scanImageForBraSize
     window.startAction = startAction
+    window.startExecution = startExecution
     console.log('Finished loading the script. Ready to start!')
-    startAction()
+    startExecution()
 })()

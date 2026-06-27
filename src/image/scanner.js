@@ -25,7 +25,7 @@ export async function collectImageUrls(nextBtn) {
 
     if (!sliderContainer) {
         console.log('Could not find the slider container.')
-        return
+        return collectedUrls
     }
 
     for (const slide of sliderContainer.children) {
@@ -44,7 +44,7 @@ export async function collectImageUrls(nextBtn) {
             }
         }
 
-        nextBtn.click()
+        nextBtn?.click()
         await sleep(500)
     }
 
