@@ -6,9 +6,7 @@
     "scripts": {
         "build": "npm run build:filter && npm run build:full",
         "build:filter": "esbuild src/filter_by_word.js --bundle --minify --outfile=dist/filter_by_word.js",
-        "build:full": "esbuild src/wordFilterAndImageProcessing.js --bundle --minify --outfile=dist/wordFilterAndImageProcessing.js",
-        "build:bundle": "esbuild index.js --bundle --outfile=dist/bundle.js",
-        "build:bundle:min": "esbuild index.js --bundle --minify --outfile=dist/bundle.js"
+        "build:full": "esbuild src/wordFilterAndImageProcessing.js --bundle --minify --outfile=dist/wordFilterAndImageProcessing.js"
     },
     "repository": {
         "type": "git",
