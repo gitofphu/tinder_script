@@ -4,6 +4,7 @@ import { getElementByText } from '../utils/dom.js'
 import { findWords } from '../utils/text.js'
 import { randomDelay, sleep } from '../utils/timing.js'
 import { log } from '../utils/logger.js'
+import { isAborted } from '../utils/abort.js'
 
 /**
  * @param {{ onBeforeLike?: (clicksDone: number, totalClicks: number) => Promise<string|null> }} options
@@ -15,6 +16,11 @@ export function createStartAction({ onBeforeLike } = {}) {
         let retryCount = 0
 
         while (true) {
+            if (isAborted()) {
+                log.error('Script aborted.')
+                return
+            }
+
             const noThanksBtn = getElementByText('div', 'No Thanks')
             if (noThanksBtn) {
                 log.event('Click: No Thanks')

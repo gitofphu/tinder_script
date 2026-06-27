@@ -1,6 +1,7 @@
 import { getElementByText } from '../utils/dom.js'
 import { sleep } from '../utils/timing.js'
 import { log } from '../utils/logger.js'
+import { isAborted, resetAbort } from '../utils/abort.js'
 
 const exploreList = [
     'Long-term partner',
@@ -27,6 +28,8 @@ async function loopingExplore(startAction, totalClicks) {
     log.loop('Starting loop explore...')
 
     for (const item of exploreList) {
+        if (isAborted()) return
+
         log.event(`Processing explore: "${item}"`)
 
         const itemBtn = getElementByText('div', item)
@@ -39,7 +42,11 @@ async function loopingExplore(startAction, totalClicks) {
         itemBtn.click()
         log.sleep(2000)
         await sleep(2000)
+        if (isAborted()) return
+
         await startAction(totalClicks)
+        if (isAborted()) return
+
         log.loop(`Done with "${item}", moving to next explore...`)
     }
 
@@ -50,6 +57,11 @@ export function createStartExecution(startAction, maxExecutionCount = 3) {
     let executionCount = 0
 
     const startExecution = async (totalClicks = 100) => {
+        if (isAborted()) {
+            log.error('Script aborted.')
+            return
+        }
+
         log.loop(
             `Starting execution... (${executionCount}/${maxExecutionCount})`,
         )
@@ -81,7 +93,9 @@ export function createStartExecution(startAction, maxExecutionCount = 3) {
 
         log.loop(`Execution ${executionCount} done, waiting 5s before next...`)
 
-        setTimeout(() => startExecution(totalClicks), 5000)
+        setTimeout(() => {
+            if (!isAborted()) startExecution(totalClicks)
+        }, 5000)
     }
 
     return startExecution
