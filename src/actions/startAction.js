@@ -1,3 +1,10 @@
+import Toastify from 'toastify-js'
+import toastifyCss from 'toastify-js/src/toastify.css'
+
+const style = document.createElement('style')
+style.textContent = toastifyCss
+document.head.appendChild(style)
+
 import { minDelay, maxDelay, MAX_DISTANT_KM } from '../constants/settings.js'
 import { bannedWords, acceptedWords, bannedSex } from '../constants/words.js'
 import { getElementByText } from '../utils/dom.js'
@@ -5,6 +12,21 @@ import { findWords } from '../utils/text.js'
 import { randomDelay, sleep } from '../utils/timing.js'
 import { log } from '../utils/logger.js'
 import { isAborted } from '../utils/abort.js'
+
+function showToast(message) {
+    Toastify({
+        text: message,
+        duration: 3000,
+        newWindow: true,
+        close: true,
+        gravity: 'top', // `top` or `bottom`
+        position: 'right', // `left`, `center` or `right`
+        stopOnFocus: true, // Prevents dismissing of toast on hover
+        style: {
+            background: 'linear-gradient(45deg, #fada61 0.000%, #ff9188 50.000%, #ff5acd 100.000%)',
+        },
+    }).showToast()
+}
 
 /**
  * @param {{ onBeforeLike?: (clicksDone: number, totalClicks: number) => Promise<string|null> }} options
@@ -81,12 +103,13 @@ export function createStartAction({ onBeforeLike } = {}) {
             const delay = randomDelay(minDelay, maxDelay)
 
             let nopeReason = null
+            let clickCountText = `,(${clicksDone}/${totalClicks})`
 
             const haveOnePicture = document.querySelector(
                 '[aria-label="1 of 1"]',
             )
             if (haveOnePicture) {
-                nopeReason = `Nope due to only have one picture: (${clicksDone}/${totalClicks})`
+                nopeReason = `Only have one picture`
             }
 
             if (!nopeReason) {
@@ -101,7 +124,7 @@ export function createStartAction({ onBeforeLike } = {}) {
                     const foundBannedWords = findWords(name, bannedWords)
 
                     if (foundBannedWords.length) {
-                        nopeReason = `Nope due to banned words in name: ${foundBannedWords.join(', ')} (${clicksDone}/${totalClicks})`
+                        nopeReason = `Banned words in name: ${foundBannedWords.join(', ')}`
                     }
                 }
             }
@@ -120,7 +143,7 @@ export function createStartAction({ onBeforeLike } = {}) {
                         foundBannedWords.length &&
                         foundAcceptedWords.length === 0
                     ) {
-                        nopeReason = `Nope due to banned words in about me: ${foundBannedWords.join(', ')} (${clicksDone}/${totalClicks})`
+                        nopeReason = `Banned words in about me: ${foundBannedWords.join(', ')}`
                     }
                 }
             }
@@ -141,7 +164,7 @@ export function createStartAction({ onBeforeLike } = {}) {
                             const distant = essential.split(' ')
 
                             if (Number(distant[0]) > MAX_DISTANT_KM) {
-                                nopeReason = `Nope due to distant: ${distant[0]} kilometers away, (${clicksDone}/${totalClicks})`
+                                nopeReason = `Distant: ${distant[0]} kilometers away`
                                 break
                             }
                         }
@@ -149,7 +172,7 @@ export function createStartAction({ onBeforeLike } = {}) {
                         const foundBannedWords = findWords(essential, bannedSex)
 
                         if (foundBannedWords.length) {
-                            nopeReason = `Nope due to sexual oreientation essentials: ${foundBannedWords.join(',')} (${clicksDone}/${totalClicks})`
+                            nopeReason = `Sexual orientation essentials: ${foundBannedWords.join(',')}`
                             break
                         }
                     }
@@ -162,7 +185,7 @@ export function createStartAction({ onBeforeLike } = {}) {
                     ?.includes('i have children')
 
                 if (haveChildren) {
-                    nopeReason = `Nope due to having children (${clicksDone}/${totalClicks})`
+                    nopeReason = `Having children`
                 }
             }
 
@@ -182,7 +205,8 @@ export function createStartAction({ onBeforeLike } = {}) {
                 log.event('Click: Nope')
                 nopeBtn.click()
                 clicksDone++
-                log.nope(nopeReason)
+                log.nope(`Nope due to ${nopeReason} ${clickCountText}`)
+                showToast(nopeReason)
 
                 if (clicksDone < totalClicks) {
                     log.sleep(delay)
@@ -208,7 +232,7 @@ export function createStartAction({ onBeforeLike } = {}) {
             likeBtn.click()
             retryCount = 0
             clicksDone++
-            log.like(`Liked (${clicksDone}/${totalClicks})`)
+            log.like(`Liked ${clickCountText}`)
 
             if (clicksDone < totalClicks) {
                 log.sleep(delay)
