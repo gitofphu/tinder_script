@@ -36,7 +36,11 @@ export function createStartAction({ onBeforeLike } = {}) {
                 log.event('Click: Close')
                 closeBtn.click()
             }
-
+            const closeBtn2 = getElementByText('button', 'Close')
+            if (closeBtn2) {
+                log.event('Click: Close2')
+                closeBtn2.click()
+            }
             if (retryCount > 3) {
                 log.error('Too many retries. Stopping current action.')
                 return

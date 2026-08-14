@@ -57,6 +57,12 @@ export function createStartExecution(startAction) {
     let executionCount = 1
 
     const startExecution = async (totalClicks = 100, maxExecutionCount = 3) => {
+        log.info(
+            'Starting execution with totalClicks:',
+            totalClicks,
+            'maxExecutionCount:',
+            maxExecutionCount,
+        )
         resetAbort()
 
         log.loop(
