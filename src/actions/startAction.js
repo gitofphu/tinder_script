@@ -23,7 +23,8 @@ function showToast(message) {
         position: 'right', // `left`, `center` or `right`
         stopOnFocus: true, // Prevents dismissing of toast on hover
         style: {
-            background: 'linear-gradient(45deg, #fada61 0.000%, #ff9188 50.000%, #ff5acd 100.000%)',
+            background:
+                'linear-gradient(45deg, #fada61 0.000%, #ff9188 50.000%, #ff5acd 100.000%)',
         },
     }).showToast()
 }
@@ -34,7 +35,7 @@ function showToast(message) {
  */
 export function createStartAction({ onBeforeLike } = {}) {
     async function startAction(totalClicks = 100) {
-        let clicksDone = 0
+        let clicksDone = 1
         let retryCount = 0
 
         while (true) {
@@ -208,7 +209,7 @@ export function createStartAction({ onBeforeLike } = {}) {
                 log.nope(`Nope due to ${nopeReason} ${clickCountText}`)
                 showToast(nopeReason)
 
-                if (clicksDone < totalClicks) {
+                if (clicksDone <= totalClicks) {
                     log.sleep(delay)
                     await sleep(delay)
                     continue
@@ -234,7 +235,7 @@ export function createStartAction({ onBeforeLike } = {}) {
             clicksDone++
             log.like(`Liked ${clickCountText}`)
 
-            if (clicksDone < totalClicks) {
+            if (clicksDone <= totalClicks) {
                 log.sleep(delay)
                 await sleep(delay)
             } else {
