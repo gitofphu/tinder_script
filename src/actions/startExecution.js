@@ -24,6 +24,11 @@ const exploreList = [
     'Animal Parents',
 ]
 
+const MODE = Object.freeze({
+    RECS: 'recs',
+    EXPLORE: 'explore',
+})
+
 async function loopingExplore(startAction, totalClicks) {
     log.loop('Starting loop explore...')
 
@@ -59,56 +64,78 @@ async function loopingExplore(startAction, totalClicks) {
     }
 
     log.loop('Loop explore finished!')
+
+    const backToExploreBtn = getElementByText('button', 'Back to Explore')
+    if (backToExploreBtn) {
+        log.info('Click: Back to Explore')
+        backToExploreBtn.click()
+        log.sleep(2000)
+        await sleep(2000)
+    }
 }
 
 export function createStartExecution(startAction) {
     let executionCount = 1
+    let twoModeMaxExecutionCount = 0
 
     const startExecution = async (totalClicks = 100, maxExecutionCount = 3) => {
+        if (twoModeMaxExecutionCount === 0) {
+            twoModeMaxExecutionCount = maxExecutionCount * 2
+        }
+
         log.info(
             'Starting execution with totalClicks:',
             totalClicks,
             'maxExecutionCount:',
             maxExecutionCount,
+            ' twoModeMaxExecutionCount:',
+            twoModeMaxExecutionCount,
         )
         resetAbort()
 
         log.loop(
-            `Starting execution... (${executionCount}/${maxExecutionCount})`,
+            `Starting execution... (${executionCount}/${twoModeMaxExecutionCount})`,
         )
 
         const path = window.location.pathname.split('/')
+        const modePath = path[2]
 
-        if (path[2] === 'recs') {
+        if (modePath === MODE.RECS) {
             log.event('Mode: recs')
             await startAction(totalClicks)
-        } else if (path[2] === 'explore') {
+        } else if (modePath === MODE.EXPLORE) {
             log.event('Mode: explore')
             await loopingExplore(startAction, totalClicks)
         }
 
         const exploreBtn = getElementByText('a', 'Explore')
-        if (!exploreBtn) {
-            log.warn('Explore button not found, stopping execution.')
+        const tinderBtn = getElementByText('a', 'Tinder')
+        if (!exploreBtn && !tinderBtn) {
+            log.warn(
+                'Explore button and Tinder button not found, stopping execution.',
+            )
             return
         }
 
-        executionCount++
-        if (executionCount - 1 >= maxExecutionCount) {
+        if (modePath === MODE.RECS) {
+            log.event('Click: Explore')
+            exploreBtn.click()
+        } else if (modePath === MODE.EXPLORE) {
+            log.event('Click: Tinder')
+            tinderBtn.click()
+        }
+
+        log.loop(`Execution ${executionCount} done, waiting 5s before next...`)
+
+        if (executionCount == twoModeMaxExecutionCount) {
             log.loop('Max execution count reached. Stopping execution.')
-            executionCount = 0
+            executionCount = 1
             return
         }
-
-        log.event('Click: Explore')
-        exploreBtn.click()
-
-        log.loop(
-            `Execution ${executionCount - 1} done, waiting 5s before next...`,
-        )
+        executionCount++
 
         setTimeout(() => {
-            if (!isAborted()) startExecution(totalClicks)
+            if (!isAborted()) startExecution(totalClicks, maxExecutionCount)
         }, 5000)
     }
 
