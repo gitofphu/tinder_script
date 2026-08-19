@@ -3,7 +3,7 @@ import { createStartExecution } from './actions/startExecution.js'
 import { initializeBSizeDetectorModel } from './image/detector.js'
 import { scanMultipleImagesSafely, collectImageUrls } from './image/scanner.js'
 import { log } from './utils/logger.js'
-import { abortScript, resetAbort } from './utils/abort.js'
+import { abortScript } from './utils/abort.js'
 
 const MAX_EXECUTION_COUNT = 6
 const TOTAL_CLICKS = 1000
