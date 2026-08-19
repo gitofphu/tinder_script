@@ -30,6 +30,14 @@ async function loopingExplore(startAction, totalClicks) {
     for (const item of exploreList) {
         if (isAborted()) return
 
+        const backToExploreBtn = getElementByText('button', 'Back to Explore')
+        if (backToExploreBtn) {
+            log.info('Click: Back to Explore')
+            backToExploreBtn.click()
+            log.sleep(2000)
+            await sleep(2000)
+        }
+
         log.event(`Processing explore: "${item}"`)
 
         const itemBtn = getElementByText('div', item)
