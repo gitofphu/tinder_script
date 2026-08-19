@@ -58,6 +58,14 @@ export const bannedWords = [
     // 'fat',
     // 'อ้วน',
     'แม่ลูก',
+    'รับงาน',
+    'btm',
+    'bottom',
+    'top',
+    'versatile',
+    'vers',
+    'side',
+    '420',
 ]
 
 export const acceptedWords = [

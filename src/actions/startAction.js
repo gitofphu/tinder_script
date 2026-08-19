@@ -103,7 +103,7 @@ export function createStartAction({ onBeforeLike } = {}) {
             const delay = randomDelay(minDelay, maxDelay)
 
             let nopeReason = null
-            let clickCountText = `,(${clicksDone}/${totalClicks})`
+            let clickCountText = `(${clicksDone}/${totalClicks})`
 
             const haveOnePicture = document.querySelector(
                 '[aria-label="1 of 1"]',
