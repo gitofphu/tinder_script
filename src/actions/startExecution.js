@@ -1,4 +1,4 @@
-import { getElementByText } from '../utils/dom.js'
+import { getElementByText, getTinderLayout, LAYOUT } from '../utils/dom.js'
 import { sleep } from '../utils/timing.js'
 import { log } from '../utils/logger.js'
 import { isAborted, resetAbort } from '../utils/abort.js'
@@ -117,12 +117,36 @@ export function createStartExecution(startAction) {
             return
         }
 
-        if (modePath === MODE.RECS) {
+        const layout = getTinderLayout()
+        if (layout === LAYOUT.UNKNOWN) {
+            log.error('Layout unknown. Stopping execution.')
+            executionCount = 1
+            return
+        }
+
+        const clickExplore = () => {
             log.event('Click: Explore')
             exploreBtn.click()
-        } else if (modePath === MODE.EXPLORE) {
+        }
+        const clickTinder = () => {
             log.event('Click: Tinder')
             tinderBtn.click()
+        }
+
+        // Desktop keeps a single Explore toggle; mobile has separate nav buttons.
+        if (layout === LAYOUT.DESKTOP) {
+            clickExplore()
+            if (modePath === MODE.RECS) {
+                log.event('Change to explore mode')
+            } else if (modePath === MODE.EXPLORE) {
+                log.event('Change to Default mode')
+            }
+        } else if (modePath === MODE.RECS) {
+            clickExplore()
+            log.event('Change to explore mode')
+        } else if (modePath === MODE.EXPLORE) {
+            clickTinder()
+            log.event('Change to Default mode')
         }
 
         log.loop(`Execution ${executionCount} done, waiting 5s before next...`)
