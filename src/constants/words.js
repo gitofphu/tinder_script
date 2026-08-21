@@ -61,10 +61,7 @@ export const bannedWords = [
     'รับงาน',
     'btm',
     'bottom',
-    'top',
     'versatile',
-    'vers',
-    'side',
     '420',
 ]
 

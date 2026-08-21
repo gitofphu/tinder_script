@@ -1,10 +1,3 @@
-import Toastify from 'toastify-js'
-import toastifyCss from 'toastify-js/src/toastify.css'
-
-const style = document.createElement('style')
-style.textContent = toastifyCss
-document.head.appendChild(style)
-
 import { minDelay, maxDelay, MAX_DISTANT_KM } from '../constants/settings.js'
 import { bannedWords, acceptedWords, bannedSex } from '../constants/words.js'
 import { getElementByText } from '../utils/dom.js'
@@ -12,22 +5,7 @@ import { findWords } from '../utils/text.js'
 import { randomDelay, sleep } from '../utils/timing.js'
 import { log } from '../utils/logger.js'
 import { isAborted } from '../utils/abort.js'
-
-function showToast(message) {
-    Toastify({
-        text: message,
-        duration: 3000,
-        newWindow: true,
-        close: true,
-        gravity: 'top', // `top` or `bottom`
-        position: 'right', // `left`, `center` or `right`
-        stopOnFocus: true, // Prevents dismissing of toast on hover
-        style: {
-            background:
-                'linear-gradient(45deg, #fada61 0.000%, #ff9188 50.000%, #ff5acd 100.000%)',
-        },
-    }).showToast()
-}
+import { showToast } from '../utils/toast.js'
 
 /**
  * @param {{ onBeforeLike?: (clicksDone: number, totalClicks: number) => Promise<string|null> }} options

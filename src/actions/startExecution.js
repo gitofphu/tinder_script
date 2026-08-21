@@ -2,6 +2,7 @@ import { getElementByText, getTinderLayout, LAYOUT } from '../utils/dom.js'
 import { sleep } from '../utils/timing.js'
 import { log } from '../utils/logger.js'
 import { isAborted, resetAbort } from '../utils/abort.js'
+import { showToast } from '../utils/toast.js'
 
 const exploreList = [
     'Long-term partner',
@@ -111,15 +112,18 @@ export function createStartExecution(startAction) {
         const exploreBtn = getElementByText('a', 'Explore')
         const tinderBtn = getElementByText('a', 'Tinder')
         if (!exploreBtn && !tinderBtn) {
-            log.warn(
-                'Explore button and Tinder button not found, stopping execution.',
-            )
+            const msg =
+                'Explore button and Tinder button not found, stopping execution.'
+            log.warn(msg)
+            showToast(msg)
             return
         }
 
         const layout = getTinderLayout()
         if (layout === LAYOUT.UNKNOWN) {
-            log.error('Layout unknown. Stopping execution.')
+            const msg = 'Layout unknown. Stopping execution.'
+            log.error(msg)
+            showToast(msg)
             executionCount = 1
             return
         }
@@ -152,7 +156,9 @@ export function createStartExecution(startAction) {
         log.loop(`Execution ${executionCount} done, waiting 5s before next...`)
 
         if (executionCount == twoModeMaxExecutionCount) {
-            log.loop('Max execution count reached. Stopping execution.')
+            const msg = 'Max execution count reached. Stopping execution.'
+            log.loop(msg)
+            showToast(msg)
             executionCount = 1
             return
         }
