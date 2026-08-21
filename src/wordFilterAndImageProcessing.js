@@ -1,4 +1,4 @@
-import { createStartAction } from './actions/startAction.js'
+import { createStartLikeAction } from './actions/startLikeAction.js'
 import { createStartExecution } from './actions/startExecution.js'
 import { initializeBSizeDetectorModel } from './image/detector.js'
 import { scanMultipleImagesSafely, collectImageUrls } from './image/scanner.js'
@@ -11,7 +11,7 @@ const TOTAL_CLICKS = 1000
 ;(async () => {
     const scanImageForBraSize = await initializeBSizeDetectorModel()
 
-    const startAction = createStartAction({
+    const startLikeAction = createStartLikeAction({
         onBeforeLike: async (clicksDone, totalClicks) => {
             const nextBtn = document.querySelector(
                 'button[aria-label="Next Photo"]',
@@ -51,10 +51,10 @@ const TOTAL_CLICKS = 1000
         },
     })
 
-    const startExecution = createStartExecution(startAction)
+    const startExecution = createStartExecution(startLikeAction)
 
     window.scanImageForBraSize = scanImageForBraSize
-    window.startAction = startAction
+    window.startLikeAction = startLikeAction
     window.startExecution = startExecution
     window.stopScript = abortScript
     log.info('Finished loading the script. Ready to start!')

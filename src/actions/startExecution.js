@@ -30,7 +30,7 @@ const MODE = Object.freeze({
     EXPLORE: 'explore',
 })
 
-async function loopingExplore(startAction, totalClicks) {
+async function loopingExplore(startLikeAction, totalClicks) {
     log.loop('Starting loop explore...')
 
     for (const item of exploreList) {
@@ -58,7 +58,7 @@ async function loopingExplore(startAction, totalClicks) {
         await sleep(2000)
         if (isAborted()) return
 
-        await startAction(totalClicks)
+        await startLikeAction(totalClicks)
         if (isAborted()) return
 
         log.loop(`Done with "${item}", moving to next explore...`)
@@ -75,7 +75,7 @@ async function loopingExplore(startAction, totalClicks) {
     }
 }
 
-export function createStartExecution(startAction) {
+export function createStartExecution(startLikeAction) {
     let executionCount = 1
     let twoModeMaxExecutionCount = 0
 
@@ -103,10 +103,10 @@ export function createStartExecution(startAction) {
 
         if (modePath === MODE.RECS) {
             log.event('Mode: recs')
-            await startAction(totalClicks)
+            await startLikeAction(totalClicks)
         } else if (modePath === MODE.EXPLORE) {
             log.event('Mode: explore')
-            await loopingExplore(startAction, totalClicks)
+            await loopingExplore(startLikeAction, totalClicks)
         }
 
         const exploreBtn = getElementByText('a', 'Explore')

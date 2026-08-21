@@ -343,7 +343,7 @@ function findWords(text, wordArr) {
 
 // Run the main function to start the process
 
-async function startAction() {
+async function startLikeAction() {
     const noThanksBtn = getElementByText('div', 'No Thanks')
     if (noThanksBtn) noThanksBtn.click()
     const maybeLaterBtn = getElementByText('div', 'Maybe Later')
@@ -381,7 +381,7 @@ async function startAction() {
     if (!profileBtn) {
         console.error('Profile button not found')
         retryCount++
-        setTimeout(startAction, 5000)
+        setTimeout(startLikeAction, 5000)
         return
     }
 
@@ -395,7 +395,7 @@ async function startAction() {
         nopeBtn.click()
         clicksDone++
         console.error(reason)
-        setTimeout(startAction, delay)
+        setTimeout(startLikeAction, delay)
     }
 
     const haveOnePicture = document.querySelector('[aria-label="1 of 1"]')
@@ -530,7 +530,7 @@ async function startAction() {
     if (!likeBtn || likeBtn.getAttribute('aria-disabled') === 'true') {
         console.error(`Like button not found or disabled!`)
         retryCount++
-        setTimeout(startAction, delay)
+        setTimeout(startLikeAction, delay)
         return
     }
 
@@ -541,7 +541,7 @@ async function startAction() {
 
     if (clicksDone < totalClicks) {
         console.log(`Waiting for ${delay} ms before next action...`)
-        setTimeout(startAction, delay)
+        setTimeout(startLikeAction, delay)
     } else {
         console.log('Finished all actions.')
         clicksDone = 0
@@ -551,4 +551,4 @@ async function startAction() {
 // const globalBtn = getElementByText('button', 'Go Global')
 
 console.log('Finished loading the script. Ready to start!')
-startAction()
+startLikeAction()

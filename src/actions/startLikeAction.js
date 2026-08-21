@@ -11,8 +11,8 @@ import { showToast } from '../utils/toast.js'
  * @param {{ onBeforeLike?: (clicksDone: number, totalClicks: number) => Promise<string|null> }} options
  * onBeforeLike: return a nope reason string to skip, or null to proceed with like
  */
-export function createStartAction({ onBeforeLike } = {}) {
-    async function startAction(totalClicks = 100) {
+export function createStartLikeAction({ onBeforeLike } = {}) {
+    async function startLikeAction(totalClicks = 100) {
         let clicksDone = 1
         let retryCount = 0
 
@@ -223,5 +223,5 @@ export function createStartAction({ onBeforeLike } = {}) {
         }
     }
 
-    return startAction
+    return startLikeAction
 }
